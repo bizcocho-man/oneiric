@@ -1,26 +1,26 @@
 fileFormatVersion: 2
-guid: 081aaab1f417fa347bfcda120bba5218
+guid: 55c51787d19db9440adefd4ca1c78c83
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: arm.l
     100002: arm.r
-    100004: chest
-    100006: foot.l
-    100008: foot.l_end
-    100010: foot.r
-    100012: foot.r_end
-    100014: forearm.l
-    100016: forearm.r
-    100018: hand.l
-    100020: hand.l_end
-    100022: hand.r
-    100024: hand.r_end
-    100026: head
-    100028: head_end
-    100030: heel.l
-    100032: heel.r
-    100034: //RootNode
+    100004: //RootNode
+    100006: chest
+    100008: foot.l
+    100010: foot.l_end
+    100012: foot.r
+    100014: foot.r_end
+    100016: forearm.l
+    100018: forearm.r
+    100020: hand.l
+    100022: hand.l_end
+    100024: hand.r
+    100026: hand.r_end
+    100028: head
+    100030: head_end
+    100032: heel.l
+    100034: heel.r
     100036: leg.l
     100038: leg.r
     100040: neck
@@ -30,22 +30,22 @@ ModelImporter:
     100048: Armature
     400000: arm.l
     400002: arm.r
-    400004: chest
-    400006: foot.l
-    400008: foot.l_end
-    400010: foot.r
-    400012: foot.r_end
-    400014: forearm.l
-    400016: forearm.r
-    400018: hand.l
-    400020: hand.l_end
-    400022: hand.r
-    400024: hand.r_end
-    400026: head
-    400028: head_end
-    400030: heel.l
-    400032: heel.r
-    400034: //RootNode
+    400004: //RootNode
+    400006: chest
+    400008: foot.l
+    400010: foot.l_end
+    400012: foot.r
+    400014: foot.r_end
+    400016: forearm.l
+    400018: forearm.r
+    400020: hand.l
+    400022: hand.l_end
+    400024: hand.r
+    400026: hand.r_end
+    400028: head
+    400030: head_end
+    400032: heel.l
+    400034: heel.r
     400036: leg.l
     400038: leg.r
     400040: neck
@@ -53,7 +53,7 @@ ModelImporter:
     400044: shin.l
     400046: shin.r
     400048: Armature
-    7400000: Jump
+    7400000: Breathing_Idle
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -84,18 +84,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Jump
+      name: Breathing_Idle
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 65
+      lastFrame: 265
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckCollision : MonoBehaviour
+public class Player_Feetcollision : MonoBehaviour
 {
-    [SerializeField] PlayerController PlayerController;
+    [SerializeField] Player_MovementController PlayerController;
 
     private void OnTriggerEnter(Collider other)
     {
