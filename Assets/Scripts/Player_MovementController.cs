@@ -15,11 +15,9 @@ public class Player_MovementController : MonoBehaviour
     private Vector3 currentVelocity;
     private bool isFacingRight = true;
     private bool isJumping;
-    private float animatorDampSpeed;
 
     // Input
     private float horizontalAxis;
-    private float horizontalAxisClamped;
     private float inputJump;
     private int speedHash = Animator.StringToHash("Speed");
 
@@ -91,14 +89,10 @@ public class Player_MovementController : MonoBehaviour
         // Set CurrentVelocity based on input
         Vector3 newVelocity = rigidBody.velocity;
 
-        horizontalAxisClamped = horizontalAxis != 0.0f ? horizontalAxis < 0.0f ? -1 : 1 : 0.0f;
-
-        newVelocity.z = IsOnGround ? horizontalAxisClamped * movementSpeed * Time.deltaTime : horizontalAxisClamped * movementSpeed * Time.deltaTime;
+        newVelocity.z = IsOnGround ? horizontalAxis * movementSpeed * Time.deltaTime : horizontalAxis * movementSpeed * Time.deltaTime;
         newVelocity.y = isJumping ? jumpForce : newVelocity.y;
 
         currentVelocity = newVelocity;
-
-        animatorDampSpeed = horizontalAxis == 0 ? 0.05f : 0.15f;
         animator.SetFloat(speedHash, Mathf.Abs(horizontalAxis));
     }
 }
