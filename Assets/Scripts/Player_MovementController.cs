@@ -6,8 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Player_MovementController : MonoBehaviour
 {
-    public float movementSpeed = 100f;
-    public float jumpForce = 200f;
+    public SO_PlayerData normalPlayerData;
+    public SO_PlayerData oniricPlayerData;
+    private SO_PlayerData currentPlayerData;
 
     // Components
     private Animator animator;
@@ -40,6 +41,8 @@ public class Player_MovementController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
+
+        currentPlayerData = normalPlayerData;
     }
 
     void Update()
@@ -89,8 +92,8 @@ public class Player_MovementController : MonoBehaviour
         // Set CurrentVelocity based on input
         Vector3 newVelocity = rigidBody.velocity;
 
-        newVelocity.z = IsOnGround ? horizontalAxis * movementSpeed * Time.deltaTime : horizontalAxis * movementSpeed * Time.deltaTime;
-        newVelocity.y = isJumping ? jumpForce : newVelocity.y;
+        newVelocity.z = IsOnGround ? horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime : horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime;
+        newVelocity.y = isJumping ? currentPlayerData.jumpSpeed : newVelocity.y;
 
         currentVelocity = newVelocity;
         animator.SetFloat(speedHash, Mathf.Abs(horizontalAxis));

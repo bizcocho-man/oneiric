@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SO_PlayerData : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+[CreateAssetMenu(fileName = "PlayerData", menuName = "ScriptableObjects/PlayerData")]
+public class SO_PlayerData : ScriptableObject
+{
+    public float movementSpeed;
+    public float jumpSpeed;
+    public float maxFallingSpeed;
+    public float fallingAcceleraion;
+    public float animatorSpeedMultiplier;
 }
