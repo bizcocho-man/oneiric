@@ -99,6 +99,6 @@ public class Player_MovementController : MonoBehaviour
         currentVelocity = newVelocity;
 
         animatorDampSpeed = horizontalAxis == 0 ? 0.05f : 0.15f;
-        animator.SetFloat(speedHash, Mathf.Abs(horizontalAxis), animatorDampSpeed, Time.deltaTime);
+        animator.SetFloat(speedHash, Mathf.Abs(horizontalAxis));
     }
 }
