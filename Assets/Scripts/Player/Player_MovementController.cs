@@ -16,6 +16,7 @@ public class Player_MovementController : MonoBehaviour
     private Vector3 currentVelocity;
     private bool isFacingRight = true;
     private bool isJumping;
+    [HideInInspector] public bool isGrabbing;
 
     // Input
     private float horizontalAxis;
@@ -75,6 +76,12 @@ public class Player_MovementController : MonoBehaviour
     private void DetectDirection()
     {
         // Facing right/left detection
+
+        if (isGrabbing)
+        {
+            return;
+        }
+
         if (horizontalAxis > 0.0f && !isFacingRight)
         {
             isFacingRight = true;
@@ -93,7 +100,35 @@ public class Player_MovementController : MonoBehaviour
         Vector3 newVelocity = rigidBody.velocity;
 
         newVelocity.z = IsOnGround ? horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime : horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime;
-        newVelocity.y = isJumping ? currentPlayerData.jumpSpeed : newVelocity.y;
+        //newVelocity.y = isJumping ? newVelocity.y = jumpForce : newVelocity.y + acceleration * Time.deltaTime;
+
+        // Jumping
+        if (!isGrabbing)
+        {
+            if (isJumping)
+            {
+                newVelocity.y = currentPlayerData.jumpSpeed;
+            }
+            // Falling
+            else if (newVelocity.y < currentPlayerData.jumpSpeed)
+            {
+                newVelocity.y -= currentPlayerData.fallingAcceleraion * Time.deltaTime;
+
+                if (newVelocity.y < -currentPlayerData.maxFallingSpeed)
+                {
+                    newVelocity.y = -currentPlayerData.maxFallingSpeed;
+                }
+            }
+        }
+
+        /*if (isJumping)
+        {
+            newVelocity -= Vector3.up * Physics.gravity.y * (jumpForce) * Time.deltaTime;
+        }
+        else if (newVelocity.y < jumpForce)
+        {
+            newVelocity += Vector3.up * Physics.gravity.y * (fallForce) * Time.deltaTime;
+        }*/
 
         currentVelocity = newVelocity;
         animator.SetFloat(speedHash, Mathf.Abs(horizontalAxis));
