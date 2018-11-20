@@ -2,24 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Player_AnimatorController))]
 public class Player_MovementController : MonoBehaviour
 {
     [HideInInspector] public SO_PlayerData currentPlayerData;
 
     // Components
-    private Animator animator;
     private Rigidbody rigidBody;
-    private Vector3 currentVelocity;
-    private bool isFacingRight = true;
-    private bool isJumping;
-    [HideInInspector] public bool isGrabbing;
+    private Player_AnimatorController playerAnimatorController;
 
     // Input
     private float horizontalAxis;
     private float inputJump;
-    private int speedHash = Animator.StringToHash("Speed");
+
+    // Movement
+    private Vector3 currentVelocity;
+    private bool isFacingRight = true;
+    private bool isJumping;
+    [HideInInspector] public bool isGrabbing;
 
     private bool isOnGround;
     public bool IsOnGround
@@ -38,8 +39,8 @@ public class Player_MovementController : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
+        playerAnimatorController = GetComponent<Player_AnimatorController>();
     }
 
     void Update()
@@ -48,6 +49,7 @@ public class Player_MovementController : MonoBehaviour
         DetectJumping();
         DetectDirection();
         CalculateCurrentVelocity();
+        UpdateAnimatorVariables();
     }
 
     private void FixedUpdate()
@@ -71,8 +73,6 @@ public class Player_MovementController : MonoBehaviour
 
     private void DetectDirection()
     {
-        // Facing right/left detection
-
         if (isGrabbing)
         {
             return;
@@ -98,9 +98,9 @@ public class Player_MovementController : MonoBehaviour
         newVelocity.z = IsOnGround ? horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime : horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime;
         //newVelocity.y = isJumping ? newVelocity.y = jumpForce : newVelocity.y + acceleration * Time.deltaTime;
 
-        // Jumping
         if (!isGrabbing)
         {
+            // Jumping
             if (isJumping)
             {
                 newVelocity.y = currentPlayerData.jumpSpeed;
@@ -126,7 +126,19 @@ public class Player_MovementController : MonoBehaviour
             newVelocity += Vector3.up * Physics.gravity.y * (fallForce) * Time.deltaTime;
         }*/
 
-        currentVelocity = newVelocity;
-        animator.SetFloat(speedHash, Mathf.Abs(horizontalAxis));
+        currentVelocity = newVelocity; 
+    }
+
+    private void UpdateAnimatorVariables()
+    {
+        if (playerAnimatorController == null)
+        {
+            return;
+        }
+
+        playerAnimatorController.movementSpeed = Mathf.Abs(horizontalAxis);
+        playerAnimatorController.animatorSpeed = currentPlayerData.animatorSpeedMultiplier;
+        playerAnimatorController.isOnGround = isOnGround;
+        playerAnimatorController.isJumping = isJumping;
     }
 }

@@ -15,4 +15,4 @@ MonoBehaviour:
   jumpSpeed: 23
   maxFallingSpeed: 60
   fallingAcceleraion: 60
-  animatorSpeedMultiplier: 1.5
+  animatorSpeedMultiplier: 1

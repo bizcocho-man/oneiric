@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_ChangeShape : MonoBehaviour
+[RequireComponent(typeof(Player_MovementController))]
+[RequireComponent(typeof(Player_Interactable))]
+public class Player_ShapeController : MonoBehaviour
 {
+    [HideInInspector] public bool normalShape;
+
     [SerializeField] private SO_PlayerData normalData;
     [SerializeField] private SO_PlayerData oniricData;
 
     private Player_MovementController playerMovementController;
     private Player_Interactable playerInteractable;
-
-    private bool normalShape;
 
     private void Start()
     {

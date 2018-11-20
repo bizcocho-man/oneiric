@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c3f5bc424922cc4492c27f54a72a587, type: 3}
   m_Name: PlayerData_Normal
   m_EditorClassIdentifier: 
-  movementSpeed: 800
+  movementSpeed: 1000
   jumpSpeed: 16
   maxFallingSpeed: 40
   fallingAcceleraion: 40
-  animatorSpeedMultiplier: 1
+  animatorSpeedMultiplier: 0.75
