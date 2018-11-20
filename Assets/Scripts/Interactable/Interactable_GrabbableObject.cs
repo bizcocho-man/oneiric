@@ -16,6 +16,11 @@ public class Interactable_GrabbableObject : InteractableObject
         fixedJoint = GetComponent<FixedJoint>();
         rigibodyPlayer = FindObjectOfType<Player_MovementController>().GetComponent<Rigidbody>();
         playerMovementController = FindObjectOfType<Player_MovementController>();
+
+        rigibodyPlayer.constraints = RigidbodyConstraints.FreezeRotationX
+                                   | RigidbodyConstraints.FreezeRotationY
+                                   | RigidbodyConstraints.FreezeRotationZ
+                                   | RigidbodyConstraints.FreezePositionX;
     }
 
     override public void StartInteracting()

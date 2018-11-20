@@ -6,9 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Player_MovementController : MonoBehaviour
 {
-    public SO_PlayerData normalPlayerData;
-    public SO_PlayerData oniricPlayerData;
-    private SO_PlayerData currentPlayerData;
+    [HideInInspector] public SO_PlayerData currentPlayerData;
 
     // Components
     private Animator animator;
@@ -42,8 +40,6 @@ public class Player_MovementController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody>();
-
-        currentPlayerData = normalPlayerData;
     }
 
     void Update()
@@ -62,7 +58,7 @@ public class Player_MovementController : MonoBehaviour
     private void GetInput()
     {
         horizontalAxis = Input.GetAxis("Horizontal");
-        inputJump = Input.GetAxis("Vertical");
+        inputJump = Input.GetAxisRaw("Vertical");
     }
 
     private void DetectJumping()

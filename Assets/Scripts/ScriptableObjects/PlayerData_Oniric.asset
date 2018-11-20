@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c3f5bc424922cc4492c27f54a72a587, type: 3}
   m_Name: PlayerData_Oniric
   m_EditorClassIdentifier: 
-  movementSpeed: 800
-  jumpSpeed: 14
-  maxFallingSpeed: 0
-  fallingAcceleraion: 0
-  animatorSpeedMultiplier: 0
+  movementSpeed: 1200
+  jumpSpeed: 23
+  maxFallingSpeed: 60
+  fallingAcceleraion: 60
+  animatorSpeedMultiplier: 1.5

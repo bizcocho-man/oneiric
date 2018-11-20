@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_HandsCollision : MonoBehaviour
+public class CheckCollisionInteractable : MonoBehaviour
 {
 
     private Player_Interactable playerInteractable;

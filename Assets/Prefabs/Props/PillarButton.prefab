@@ -21,7 +21,9 @@ GameObject:
   - component: {fileID: 4917239770251982}
   - component: {fileID: 33828984447829458}
   - component: {fileID: 23356179952429324}
-  m_Layer: 0
+  - component: {fileID: 114402118868254000}
+  - component: {fileID: 65195477039199604}
+  m_Layer: 12
   m_Name: PillarButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,8 +36,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1165741326231954}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.4, y: 2.1483, z: -1.09}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.208405, y: -5.716483, z: -12.749999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,3 +86,27 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1165741326231954}
   m_Mesh: {fileID: 4300000, guid: b201149889193c04d93449b567f65762, type: 3}
+--- !u!65 &65195477039199604
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1165741326231954}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0631443, y: 4.601513, z: 1.0631443}
+  m_Center: {x: 0, y: -0.04276049, z: 0}
+--- !u!114 &114402118868254000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1165741326231954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 313500884fc5dbe458d898f898da52c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToActivate: {fileID: 0}
