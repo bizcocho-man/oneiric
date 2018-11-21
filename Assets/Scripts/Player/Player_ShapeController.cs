@@ -10,9 +10,13 @@ public class Player_ShapeController : MonoBehaviour
 
     [SerializeField] private SO_PlayerData normalData;
     [SerializeField] private SO_PlayerData oniricData;
+    [SerializeField] private SkinnedMeshRenderer characterRenderer;
+    [SerializeField] private SkinnedMeshRenderer hairRenderer;
 
     private Player_MovementController playerMovementController;
     private Player_Interactable playerInteractable;
+
+    private Material[] newMaterials;
 
     private void Start()
     {
@@ -22,21 +26,38 @@ public class Player_ShapeController : MonoBehaviour
         normalShape = true;
 
         SetShapeVariables();
+        SetShapeMaterials();
     }
 	
-	void Update ()
+	private void Update ()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
             normalShape = !normalShape;
 
             SetShapeVariables();
+            SetShapeMaterials();
         }
     }
 
-    void SetShapeVariables()
+    private void SetShapeVariables()
     {
         playerMovementController.currentPlayerData = normalShape ? normalData : oniricData;
         playerInteractable.canInteract = normalShape;
+    }
+
+    private void SetShapeMaterials()
+    {
+        // Hair
+        newMaterials = hairRenderer.sharedMaterials;
+        newMaterials[0] = normalShape ? normalData.hairMaterial : oniricData.hairMaterial;
+        hairRenderer.sharedMaterials = newMaterials;
+
+        // Body
+        newMaterials = characterRenderer.sharedMaterials;
+        newMaterials[0] = normalShape ? normalData.shirtMaterial : oniricData.shirtMaterial;
+        newMaterials[1] = normalShape ? normalData.pantsMaterial : oniricData.pantsMaterial;
+        newMaterials[2] = normalShape ? normalData.skinMaterial : oniricData.skinMaterial;
+        characterRenderer.sharedMaterials = newMaterials;
     }
 }

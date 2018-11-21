@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c5daaba07d762eb418be2ab00278b8eb
+guid: 744f7bf604dae734fab12825110f5471
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -55,7 +55,7 @@ ModelImporter:
     400046: mixamorig:Spine
     400048: mixamorig:Spine1
     400050: mixamorig:Spine2
-    7400000: JumpRunning
+    7400000: Falling
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -86,50 +86,29 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: JumpRunning
+      name: Falling
       takeName: mixamo.com
       firstFrame: 0
-      lastFrame: 30
+      lastFrame: 21
       wrapMode: 0
       orientationOffsetY: 0
-      level: 0
+      level: -0.5
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
-      keepOriginalPositionY: 0
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0
-        functionName: Event_CanLand
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.04770017
-        functionName: Event_Jump
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.543546
-        functionName: Event_CanLand
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 1
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

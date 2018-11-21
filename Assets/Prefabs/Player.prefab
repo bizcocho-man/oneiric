@@ -964,6 +964,8 @@ MonoBehaviour:
   normalShape: 0
   normalData: {fileID: 11400000, guid: b02d3b1c73428bf43863ef05c711db63, type: 2}
   oniricData: {fileID: 11400000, guid: 0fa587314e6adfe41936bd58083c9ab8, type: 2}
+  characterRenderer: {fileID: 137784895516887822}
+  hairRenderer: {fileID: 137680504454235546}
 --- !u!114 &114178497638859240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -976,6 +978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPlayerData: {fileID: 0}
+  feet: {fileID: 1632216696571856}
   isGrabbing: 0
 --- !u!114 &114473935086051782
 MonoBehaviour:
@@ -999,7 +1002,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec428bf3c831e434da9d59234d361c28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  movementSpeed: 0
+  animatorSpeed: 0
+  isOnGround: 0
+  canMove: 0
+  canJump: 0
+  canLand: 0
+  isJumping: 0
 --- !u!114 &114920767164688270
 MonoBehaviour:
   m_ObjectHideFlags: 1

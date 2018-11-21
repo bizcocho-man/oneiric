@@ -11,6 +11,7 @@ public class Player_MovementController : MonoBehaviour
     // Components
     private Rigidbody rigidBody;
     private Player_AnimatorController playerAnimatorController;
+    [SerializeField] private GameObject feet;
 
     // Input
     private float horizontalAxis;
@@ -19,6 +20,9 @@ public class Player_MovementController : MonoBehaviour
     // Movement
     private Vector3 currentVelocity;
     private bool isFacingRight = true;
+    private bool canMove = true;
+    private bool canJump;
+    private bool canLand = true;
     private bool isJumping;
     [HideInInspector] public bool isGrabbing;
 
@@ -67,7 +71,11 @@ public class Player_MovementController : MonoBehaviour
     {
         if (inputJump > 0 && !isJumping && isOnGround)
         {
-            isJumping = true;
+            canJump = true;
+        }
+        else
+        {
+            canJump = false;
         }
     }
 
@@ -78,7 +86,7 @@ public class Player_MovementController : MonoBehaviour
             return;
         }
 
-        if (horizontalAxis > 0.0f && !isFacingRight)
+        if (horizontalAxis > 0.0f && !isFacingRight && canMove)
         {
             isFacingRight = true;
             transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
@@ -95,7 +103,7 @@ public class Player_MovementController : MonoBehaviour
         // Set CurrentVelocity based on input
         Vector3 newVelocity = rigidBody.velocity;
 
-        newVelocity.z = IsOnGround ? horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime : horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime;
+        newVelocity.z = canMove ? horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime : horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime;
         //newVelocity.y = isJumping ? newVelocity.y = jumpForce : newVelocity.y + acceleration * Time.deltaTime;
 
         if (!isGrabbing)
@@ -139,6 +147,24 @@ public class Player_MovementController : MonoBehaviour
         playerAnimatorController.movementSpeed = Mathf.Abs(horizontalAxis);
         playerAnimatorController.animatorSpeed = currentPlayerData.animatorSpeedMultiplier;
         playerAnimatorController.isOnGround = isOnGround;
+        playerAnimatorController.canMove = canMove;
+        playerAnimatorController.canJump = canJump;
+        playerAnimatorController.canLand = canLand;
         playerAnimatorController.isJumping = isJumping;
+    }
+
+    public void Event_CanLand(int value /* 0 = false, 1 = true */)
+    {
+        canLand = value == 0 ? false : true;      
+    }
+
+    public void Event_CanMove(int value /* 0 = false, 1 = true */)
+    {
+        canMove = value == 0 ? false : true;
+    }
+
+    public void Event_Jump()
+    {
+        isJumping = true;
     }
 }

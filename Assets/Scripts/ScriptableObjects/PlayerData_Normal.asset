@@ -16,3 +16,7 @@ MonoBehaviour:
   maxFallingSpeed: 40
   fallingAcceleraion: 40
   animatorSpeedMultiplier: 0.75
+  hairMaterial: {fileID: 2100000, guid: 6b124c5bf006d2140be14324afb92b8e, type: 2}
+  skinMaterial: {fileID: 2100000, guid: 373e02c8e90e9644bbd0ad8de16d4fc2, type: 2}
+  shirtMaterial: {fileID: 2100000, guid: 5cba59905d4666045856781a431280bf, type: 2}
+  pantsMaterial: {fileID: 2100000, guid: 02e8d99230186a04d89788ce6c09b9cd, type: 2}
