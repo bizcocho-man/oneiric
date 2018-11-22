@@ -16,11 +16,6 @@ public class Player_FeetCollision : MonoBehaviour
         playerMovementController.IsOnGround = true;
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        playerMovementController.IsOnGround = true;
-    }
-
     private void OnTriggerExit(Collider other)
     {
         playerMovementController.IsOnGround = false;

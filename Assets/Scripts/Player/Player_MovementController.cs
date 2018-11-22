@@ -81,12 +81,12 @@ public class Player_MovementController : MonoBehaviour
 
     private void DetectDirection()
     {
-        if (isGrabbing)
+        if (isGrabbing || !canMove)
         {
             return;
         }
 
-        if (horizontalAxis > 0.0f && !isFacingRight && canMove)
+        if (horizontalAxis > 0.0f && !isFacingRight)
         {
             isFacingRight = true;
             transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
@@ -103,7 +103,7 @@ public class Player_MovementController : MonoBehaviour
         // Set CurrentVelocity based on input
         Vector3 newVelocity = rigidBody.velocity;
 
-        newVelocity.z = canMove ? horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime : horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime;
+        newVelocity.z = canMove ? horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime : 0.0f;
         //newVelocity.y = isJumping ? newVelocity.y = jumpForce : newVelocity.y + acceleration * Time.deltaTime;
 
         if (!isGrabbing)
@@ -165,6 +165,7 @@ public class Player_MovementController : MonoBehaviour
 
     public void Event_Jump()
     {
+        IsOnGround = false;
         isJumping = true;
     }
 }
