@@ -29,7 +29,7 @@ public class CameraTarget_FollowPlayerEditor : Editor
         GUI.backgroundColor = color_FlatGreen;
         if (GUILayout.Button("Set position", GUILayout.MaxWidth(100), GUILayout.Height(25)))
         {
-            targetScript.transform.position = targetScript.player.position + targetScript.localOffset;
+            targetScript.transform.position = targetScript.target.position + targetScript.localOffset;
         }
         GUI.backgroundColor = color_OriginalBackgroundColor;
 

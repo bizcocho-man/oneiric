@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class CameraTarget_FollowPlayer : MonoBehaviour
 {
-    public Transform player;
+    public Transform target;
     public Vector3 localOffset;
 
     private Vector3 globalOffset;
 
     private void Start()
     {
-        globalOffset = transform.position - player.position;
+        globalOffset = transform.position - target.position;
     }
 
     private void LateUpdate()
     {
-        transform.position = player.position + globalOffset;
+        transform.position = target.position + globalOffset;
     }
 }
