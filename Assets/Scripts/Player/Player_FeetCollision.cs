@@ -13,11 +13,11 @@ public class Player_FeetCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        playerMovementController.IsOnGround = true;
+        playerMovementController.isOnGround = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        playerMovementController.IsOnGround = false;
+        playerMovementController.isOnGround = false;
     }
 }

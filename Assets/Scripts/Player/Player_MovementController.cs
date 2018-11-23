@@ -20,26 +20,12 @@ public class Player_MovementController : MonoBehaviour
     // Movement
     private Vector3 currentVelocity;
     private bool isFacingRight = true;
-    private bool canMove = true;
     private bool canJump;
     private bool canLand = true;
-    private bool isJumping;
+    [HideInInspector] public bool canMove = true;
+    [HideInInspector] public bool isJumping;
     [HideInInspector] public bool isGrabbing;
-
-    private bool isOnGround;
-    public bool IsOnGround
-    {
-        get
-        {
-            return isOnGround;
-        }
-
-        set
-        {
-            isOnGround = value;
-            isJumping = false;
-        }
-    }
+    [HideInInspector] public bool isOnGround;
 
     void Start()
     {
@@ -153,19 +139,18 @@ public class Player_MovementController : MonoBehaviour
         playerAnimatorController.isJumping = isJumping;
     }
 
-    public void Event_CanLand(int value /* 0 = false, 1 = true */)
-    {
-        canLand = value == 0 ? false : true;      
-    }
+    //public void Event_CanMove(int value /* 0 = false, 1 = true */)
+    //{
+    //    canMove = value == 0 ? false : true;
+    //}
 
-    public void Event_CanMove(int value /* 0 = false, 1 = true */)
-    {
-        canMove = value == 0 ? false : true;
-    }
+    //public void Event_CanLand(int value /* 0 = false, 1 = true */)
+    //{
+    //    canLand = value == 0 ? false : true;
+    //}
 
-    public void Event_Jump()
-    {
-        IsOnGround = false;
-        isJumping = true;
-    }
+    //public void Event_IsJumping(int value /* 0 = false, 1 = true */)
+    //{
+    //    isJumping = value == 0 ? false : true;
+    //}
 }

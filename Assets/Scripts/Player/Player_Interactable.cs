@@ -23,7 +23,7 @@ public class Player_Interactable : MonoBehaviour
             return;
         }
 
-        if (interactableObject != null && playerMovementController.IsOnGround)
+        if (interactableObject != null && playerMovementController.isOnGround)
         {
             if (interactableObject.GetComponent<InteractableObject>())
             {
