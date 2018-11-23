@@ -89,12 +89,12 @@ public class Player_MovementController : MonoBehaviour
         if (horizontalAxis > 0.0f && !isFacingRight)
         {
             isFacingRight = true;
-            transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+            transform.rotation = Quaternion.Euler(0.0f, 90.0f, 0.0f);
         }
         else if (horizontalAxis < 0.0f && isFacingRight)
         {
             isFacingRight = false;
-            transform.rotation = Quaternion.Euler(0.0f, 180.0f, 0.0f);
+            transform.rotation = Quaternion.Euler(0.0f, -90.0f, 0.0f);
         }
     }
 
@@ -103,7 +103,7 @@ public class Player_MovementController : MonoBehaviour
         // Set CurrentVelocity based on input
         Vector3 newVelocity = rigidBody.velocity;
 
-        newVelocity.z = canMove ? horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime : 0.0f;
+        newVelocity.x = canMove ? horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime : 0.0f;
         //newVelocity.y = isJumping ? newVelocity.y = jumpForce : newVelocity.y + acceleration * Time.deltaTime;
 
         if (!isGrabbing)
