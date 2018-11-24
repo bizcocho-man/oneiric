@@ -15,7 +15,6 @@ public class Player_AnimatorController : MonoBehaviour
     [HideInInspector] public bool isJumping;
 
     private Animator animator;
-    private Player_ShapeController playerShapeController;
 
     // Hashes
     private int hash_MovementSpeed = Animator.StringToHash("MovementSpeed");
@@ -29,7 +28,6 @@ public class Player_AnimatorController : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        playerShapeController = GetComponent<Player_ShapeController>();
     }
 
     private void FixedUpdate()

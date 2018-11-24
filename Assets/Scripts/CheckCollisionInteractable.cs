@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CheckCollisionInteractable : MonoBehaviour
 {
-
     private Player_Interactable playerInteractable;
 
     private void Start()

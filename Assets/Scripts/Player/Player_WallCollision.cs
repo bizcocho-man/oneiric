@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_FeetCollision : MonoBehaviour
+public class Player_WallCollision : MonoBehaviour
 {
     [SerializeField] private LayerMask layers;
     [SerializeField] private float distance;
@@ -17,9 +17,9 @@ public class Player_FeetCollision : MonoBehaviour
 
     private void Update()
     {
-        hit = Physics.Raycast(transform.position, Vector3.down, distance, layers);
-        playerMovementController.isOnGround = hit;
+        hit = Physics.Raycast(transform.position, transform.forward, distance, layers);
+        playerMovementController.canMove = !hit;
 
-        Debug.DrawRay(transform.position, Vector3.down * distance, hit ? Color.red : Color.green);
+        Debug.DrawRay(transform.position, transform.forward * distance, hit ? Color.red : Color.green);
     }
 }

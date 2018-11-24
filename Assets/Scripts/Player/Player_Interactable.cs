@@ -6,7 +6,6 @@ using UnityEngine;
 public class Player_Interactable : MonoBehaviour
 {
     [HideInInspector] public bool canInteract;
-
     [HideInInspector] public GameObject interactableObject;
 
     private Player_MovementController playerMovementController;

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Interactable_GrabbableObject : InteractableObject
 {
+    [SerializeField] private LayerMask collisionLayer;
+    [SerializeField] private float raycastLength = 4f;
+
     private Rigidbody rigibodyPlayer;
     private Rigidbody rigidbodyGO;
 
     private Player_MovementController playerMovementController;
 
-    private bool isFalling;
-
-    private LayerMask layerGround;
-    private RaycastHit hit;
+    private bool isFalling;    
+    private bool hit;
 
     private void Start()
     {
@@ -20,7 +21,6 @@ public class Interactable_GrabbableObject : InteractableObject
         CreateRigidbody();
         rigibodyPlayer = FindObjectOfType<Player_MovementController>().GetComponent<Rigidbody>();
         playerMovementController = FindObjectOfType<Player_MovementController>();
-        layerGround = LayerMask.GetMask("Ground");
 
         rigidbodyGO.constraints = RigidbodyConstraints.FreezeRotationX
                                 | RigidbodyConstraints.FreezeRotationZ
@@ -38,7 +38,10 @@ public class Interactable_GrabbableObject : InteractableObject
 
     private void Update()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, transform.localScale.y * 4f, layerGround))
+        hit = Physics.Raycast(transform.position, Vector3.down, transform.localScale.y * raycastLength, collisionLayer);
+        Debug.DrawRay(transform.position, Vector3.down * transform.localScale.y * raycastLength, hit ? Color.green : Color.red);
+
+        if (hit)
         {
             if (!hasBeenInteracted)
             {
@@ -101,13 +104,5 @@ public class Interactable_GrabbableObject : InteractableObject
         rigidbodyGO.constraints = RigidbodyConstraints.FreezeRotationX
                                 | RigidbodyConstraints.FreezeRotationY
                                 | RigidbodyConstraints.FreezePositionZ;
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        // Draws a 5 unit long red line in front of the object
-        Gizmos.color = Color.red;
-        Vector3 direction = Vector3.down * transform.localScale.y * 4f;
-        Gizmos.DrawRay(transform.position, direction);
     }
 }

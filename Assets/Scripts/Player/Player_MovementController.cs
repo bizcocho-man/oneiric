@@ -11,7 +11,6 @@ public class Player_MovementController : MonoBehaviour
     // Components
     private Rigidbody rigidBody;
     private Player_AnimatorController playerAnimatorController;
-    [SerializeField] private GameObject feet;
 
     // Input
     private float horizontalAxis;
@@ -23,10 +22,10 @@ public class Player_MovementController : MonoBehaviour
     private bool canJump;
     private bool canLand = true;
     [HideInInspector] public bool canMove = true;
+    [HideInInspector] public bool canRotate = true;
     [HideInInspector] public bool isJumping;
     [HideInInspector] public bool isGrabbing;
     [HideInInspector] public bool isOnGround;
-    [HideInInspector] public bool isMovementDisabled;
 
     void Start()
     {
@@ -38,6 +37,7 @@ public class Player_MovementController : MonoBehaviour
     {
         GetInput();
         DetectJumping();
+
         DetectDirection();
         CalculateCurrentVelocity();
         UpdateAnimatorVariables();
@@ -68,7 +68,7 @@ public class Player_MovementController : MonoBehaviour
 
     private void DetectDirection()
     {
-        if (isGrabbing || !canMove)
+        if (isGrabbing || !canRotate)
         {
             return;
         }
@@ -92,8 +92,6 @@ public class Player_MovementController : MonoBehaviour
 
         newVelocity.x = canMove ? horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime : 0.0f;
         newVelocity.x = isGrabbing ? newVelocity.x / 2f : newVelocity.x;
-        
-        //newVelocity.y = isJumping ? newVelocity.y = jumpForce : newVelocity.y + acceleration * Time.deltaTime;
 
         if (!isGrabbing)
         {
@@ -114,15 +112,6 @@ public class Player_MovementController : MonoBehaviour
             }
         }
 
-        /*if (isJumping)
-        {
-            newVelocity -= Vector3.up * Physics.gravity.y * (jumpForce) * Time.deltaTime;
-        }
-        else if (newVelocity.y < jumpForce)
-        {
-            newVelocity += Vector3.up * Physics.gravity.y * (fallForce) * Time.deltaTime;
-        }*/
-
         currentVelocity = newVelocity; 
     }
 
@@ -133,7 +122,7 @@ public class Player_MovementController : MonoBehaviour
             return;
         }
 
-        playerAnimatorController.movementSpeed = Mathf.Abs(horizontalAxis);
+        playerAnimatorController.movementSpeed = canMove ? Mathf.Abs(horizontalAxis) : 0.0f;
         playerAnimatorController.animatorSpeed = currentPlayerData.animatorSpeedMultiplier;
         playerAnimatorController.isOnGround = isOnGround;
         playerAnimatorController.canMove = canMove;
@@ -141,19 +130,4 @@ public class Player_MovementController : MonoBehaviour
         playerAnimatorController.canLand = canLand;
         playerAnimatorController.isJumping = isJumping;
     }
-
-    //public void Event_CanMove(int value /* 0 = false, 1 = true */)
-    //{
-    //    canMove = value == 0 ? false : true;
-    //}
-
-    //public void Event_CanLand(int value /* 0 = false, 1 = true */)
-    //{
-    //    canLand = value == 0 ? false : true;
-    //}
-
-    //public void Event_IsJumping(int value /* 0 = false, 1 = true */)
-    //{
-    //    isJumping = value == 0 ? false : true;
-    //}
 }
