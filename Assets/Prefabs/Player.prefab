@@ -283,6 +283,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4915563016898744}
+  - component: {fileID: 65380112302022466}
   - component: {fileID: 114473935086051782}
   m_Layer: 10
   m_Name: Feet
@@ -903,7 +904,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1632216696571856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.06, z: 0}
+  m_LocalPosition: {x: -0.07, y: 0.06, z: 0.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4102441433732172}
@@ -936,7 +937,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 88
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!65 &65314237742548666
 BoxCollider:
@@ -950,6 +951,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65380112302022466
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1632216696571856}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.08, y: 1, z: 1.57}
+  m_Center: {x: 0.070237756, y: 0, z: -1.09960335e-16}
 --- !u!65 &65403327927314000
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1052,10 +1065,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eca7352b91b22fc4cb3780d7545a12d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layers:
-    serializedVersion: 2
-    m_Bits: 6144
-  distance: 0.65
 --- !u!114 &114602255702315134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1069,6 +1078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 0
   animatorSpeed: 0
+  isFacingLeft: 0
   isOnGround: 0
   canMove: 0
   canJump: 0
