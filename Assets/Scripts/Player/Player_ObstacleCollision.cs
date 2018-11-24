@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_WallCollision : MonoBehaviour
+public class Player_ObstacleCollision : MonoBehaviour
 {
     [SerializeField] private LayerMask layers;
     [SerializeField] private float distance;
@@ -18,7 +18,7 @@ public class Player_WallCollision : MonoBehaviour
     private void Update()
     {
         hit = Physics.Raycast(transform.position, transform.forward, distance, layers);
-        playerMovementController.canMove = !hit;
+        playerMovementController.isAgainstObstacle = hit;
 
         Debug.DrawRay(transform.position, transform.forward * distance, hit ? Color.red : Color.green);
     }

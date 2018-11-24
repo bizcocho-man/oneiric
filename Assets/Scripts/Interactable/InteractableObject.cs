@@ -5,6 +5,7 @@ using UnityEngine;
 public class InteractableObject : MonoBehaviour
 {
     public bool hasBeenInteracted;
+    public bool canBeInteracted = true;
 
     virtual public void StartInteracting()
     {

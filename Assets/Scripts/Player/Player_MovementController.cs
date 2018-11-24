@@ -26,6 +26,8 @@ public class Player_MovementController : MonoBehaviour
     [HideInInspector] public bool isJumping;
     [HideInInspector] public bool isGrabbing;
     [HideInInspector] public bool isOnGround;
+    [HideInInspector] public bool isMovementBlocked;
+    [HideInInspector] public bool isAgainstObstacle;
 
     void Start()
     {
@@ -37,7 +39,6 @@ public class Player_MovementController : MonoBehaviour
     {
         GetInput();
         DetectJumping();
-
         DetectDirection();
         CalculateCurrentVelocity();
         UpdateAnimatorVariables();
@@ -52,6 +53,8 @@ public class Player_MovementController : MonoBehaviour
     {
         horizontalAxis = Input.GetAxis("Horizontal");
         inputJump = Input.GetAxisRaw("Vertical");
+
+        canMove = !isMovementBlocked && !isAgainstObstacle;
     }
 
     private void DetectJumping()

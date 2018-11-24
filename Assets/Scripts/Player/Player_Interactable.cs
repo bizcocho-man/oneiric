@@ -9,32 +9,60 @@ public class Player_Interactable : MonoBehaviour
     [HideInInspector] public GameObject interactableObject;
 
     private Player_MovementController playerMovementController;
+    private Player_AnimatorController playerAnimatorController;
+
+    private const string tag_InteractablePressable = "Interactable_Pressable";
+    private const string tag_InteractableGrabbable = "Interactable_Grabbable";
 
     private void Start()
     {
         playerMovementController = GetComponent<Player_MovementController>();
+        playerAnimatorController = GetComponent<Player_AnimatorController>();
     }
 
     private void Update()
     {
-        if (!canInteract)
+        if (!canInteract || interactableObject == null)
         {
             return;
         }
 
-        if (interactableObject != null && playerMovementController.isOnGround)
+        InteractableObject interactableObjectComponent = interactableObject.GetComponent<InteractableObject>();
+        if (interactableObjectComponent == null)
         {
-            if (interactableObject.GetComponent<InteractableObject>())
+            return;
+        }
+
+        if (playerMovementController.isOnGround)
+        {
+            if (Input.GetKeyDown(KeyCode.E) && interactableObjectComponent.canBeInteracted)
             {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    interactableObject.GetComponent<InteractableObject>().StartInteracting();
-                }
-                else if (Input.GetKeyUp(KeyCode.E))
-                {
-                    interactableObject.GetComponent<InteractableObject>().EndInteracting();
-                }
+                interactableObjectComponent.StartInteracting();
+                UpdateAnimatorVariables(true);
             }
+            else if (Input.GetKeyUp(KeyCode.E))
+            {
+                interactableObjectComponent.EndInteracting();
+                UpdateAnimatorVariables(false);
+            }
+        }
+        else if (interactableObjectComponent.hasBeenInteracted)
+        {
+            interactableObjectComponent.EndInteracting();
+            UpdateAnimatorVariables(false);
+        }
+    }
+
+    private void UpdateAnimatorVariables(bool value)
+    {
+        switch (interactableObject.tag)
+        {
+            case tag_InteractablePressable:
+                playerAnimatorController.isInteractingPressable = value;
+                break;
+            case tag_InteractableGrabbable:
+                playerAnimatorController.isInteractingGrabbable = value;
+                break;
         }
     }
 }

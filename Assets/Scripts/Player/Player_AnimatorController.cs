@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Player_ShapeController))]
 public class Player_AnimatorController : MonoBehaviour
 {
+    // Movement
     [HideInInspector] public float movementSpeed;
     [HideInInspector] public float animatorSpeed;
     [HideInInspector] public bool isOnGround;
@@ -13,6 +14,10 @@ public class Player_AnimatorController : MonoBehaviour
     [HideInInspector] public bool canJump;
     [HideInInspector] public bool canLand;
     [HideInInspector] public bool isJumping;
+
+    // Interaction
+    [HideInInspector] public bool isInteractingPressable;
+    [HideInInspector] public bool isInteractingGrabbable;
 
     private Animator animator;
 
@@ -24,6 +29,8 @@ public class Player_AnimatorController : MonoBehaviour
     private int hash_CanJump = Animator.StringToHash("CanJump");
     private int hash_CanLand = Animator.StringToHash("CanLand");
     private int hash_IsJumping = Animator.StringToHash("IsJumping");
+    private int hash_IsInteractingPressable = Animator.StringToHash("IsInteractingPressable");
+    private int hash_IsInteractingGrabbable = Animator.StringToHash("IsInteractingGrabbable");
 
     private void Start()
     {
@@ -38,6 +45,7 @@ public class Player_AnimatorController : MonoBehaviour
             return;
         }
 
+        // Movement
         animator.SetFloat(hash_MovementSpeed, movementSpeed);
         animator.SetFloat(hash_AnimatorSpeed, animatorSpeed);
         animator.SetBool(hash_IsOnGround, isOnGround);
@@ -45,5 +53,9 @@ public class Player_AnimatorController : MonoBehaviour
         animator.SetBool(hash_CanJump, canJump);
         animator.SetBool(hash_CanLand, canLand);
         animator.SetBool(hash_IsJumping, isJumping);
+
+        // Interaction
+        animator.SetBool(hash_IsInteractingPressable, isInteractingPressable);
+        animator.SetBool(hash_IsInteractingGrabbable, isInteractingGrabbable);
     }
 }

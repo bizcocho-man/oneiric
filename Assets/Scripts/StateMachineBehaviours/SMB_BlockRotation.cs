@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SMB_CanMove : StateMachineBehaviour
+public class SMB_BlockRotation : StateMachineBehaviour
 {
     [Range(0.0f, 1.0f)] public float animationPercentage;
-    public bool canMove;
+    public bool blockRotation;
     public bool resetOnExit;
 
     private Player_MovementController playerMovementController;
@@ -26,7 +26,7 @@ public class SMB_CanMove : StateMachineBehaviour
             return;
         }
 
-        playerMovementController.canMove = canMove;
+        playerMovementController.canRotate = !blockRotation;
         hasBeenApplied = true;
     }
 
@@ -37,6 +37,6 @@ public class SMB_CanMove : StateMachineBehaviour
             return;
         }
 
-        playerMovementController.canMove = !canMove;
+        playerMovementController.canRotate = true;
     }
 }

@@ -27,6 +27,7 @@ public class Interactable_PressableObject : InteractableObject
         if (!hasBeenInteracted)
         {
             hasBeenInteracted = true;
+            canBeInteracted = false;
         }
     }
 }
