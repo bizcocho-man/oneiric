@@ -23,6 +23,10 @@ public class Interactable_GrabbableObject : InteractableObject
         rigibodyPlayer = FindObjectOfType<Player_MovementController>().GetComponent<Rigidbody>();
         playerMovementController = FindObjectOfType<Player_MovementController>();
         layerGround = LayerMask.GetMask("Ground");
+
+        rigidbodyGO.constraints = RigidbodyConstraints.FreezeRotationX
+                   | RigidbodyConstraints.FreezeRotationZ
+                   | RigidbodyConstraints.FreezePositionZ;
     }
 
     private void Update()
@@ -42,6 +46,7 @@ public class Interactable_GrabbableObject : InteractableObject
             if (!isFalling)
             {
                 isFalling = true;
+                fixedJoint.connectedBody = null;
                 Destroy(fixedJoint);
                 EndInteracting();
 
@@ -52,6 +57,8 @@ public class Interactable_GrabbableObject : InteractableObject
 
     override public void StartInteracting()
     {
+        transform.parent = null;
+
         if (!hasBeenInteracted)
         {
             rigidbodyGO.constraints = RigidbodyConstraints.FreezeRotationX
@@ -82,11 +89,12 @@ public class Interactable_GrabbableObject : InteractableObject
             fixedJoint.connectedBody = null;
         }
 
-        rigidbodyGO.constraints = RigidbodyConstraints.FreezeRotationX
-                          | RigidbodyConstraints.FreezeRotationY;
-
         rigibodyPlayer.constraints = RigidbodyConstraints.FreezeRotationX
                            | RigidbodyConstraints.FreezeRotationZ
                            | RigidbodyConstraints.FreezePositionZ;
+
+        rigidbodyGO.constraints = RigidbodyConstraints.FreezeRotationX
+                        | RigidbodyConstraints.FreezeRotationY
+                        | RigidbodyConstraints.FreezePositionZ;
     }
 }

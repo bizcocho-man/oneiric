@@ -92,8 +92,6 @@ public class Player_MovementController : MonoBehaviour
 
         newVelocity.x = canMove ? horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime : 0.0f;
         newVelocity.x = isGrabbing ? newVelocity.x / 2f : newVelocity.x;
-
-        Debug.Log(isGrabbing);
         
         //newVelocity.y = isJumping ? newVelocity.y = jumpForce : newVelocity.y + acceleration * Time.deltaTime;
 
