@@ -21,7 +21,8 @@ GameObject:
   - component: {fileID: 4107621197719416}
   - component: {fileID: 33190937141670320}
   - component: {fileID: 23267727607332510}
-  m_Layer: 0
+  - component: {fileID: 65347873990778380}
+  m_Layer: 16
   m_Name: InternRightDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +40,7 @@ GameObject:
   - component: {fileID: 65645366361865710}
   - component: {fileID: 111796860801949852}
   - component: {fileID: 114667371342675574}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +57,8 @@ GameObject:
   - component: {fileID: 4970464974859902}
   - component: {fileID: 33462200720609920}
   - component: {fileID: 23190521608799640}
-  m_Layer: 0
+  - component: {fileID: 65042465519232312}
+  m_Layer: 16
   m_Name: InternLeftDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +76,7 @@ GameObject:
   - component: {fileID: 33204307847904118}
   - component: {fileID: 23535731489713978}
   - component: {fileID: 65829529856344318}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: LeftDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +94,7 @@ GameObject:
   - component: {fileID: 33952048366758294}
   - component: {fileID: 23330940579745632}
   - component: {fileID: 65841503809717358}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: RightDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,15 +120,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1798656839856748}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.5257, y: -1.4055, z: 10.391}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -2.3408, y: -1.4055, z: -50.051}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4996739898904282}
   - {fileID: 4829185439790690}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4829185439790690
 Transform:
   m_ObjectHideFlags: 1
@@ -338,6 +340,30 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1959269381792634}
   m_Mesh: {fileID: 4300000, guid: 5ff953a18ebaf5b449cf7bc5388952cb, type: 3}
+--- !u!65 &65042465519232312
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1845753306446300}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.000003, y: 14.4, z: 0.7606979}
+  m_Center: {x: 0.58333564, y: 0, z: 0.00000093877327}
+--- !u!65 &65347873990778380
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1757851311122492}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.000003, y: 14.4, z: 0.7606979}
+  m_Center: {x: 0.5833299, y: 0, z: 0.00000093877327}
 --- !u!65 &65645366361865710
 BoxCollider:
   m_ObjectHideFlags: 1

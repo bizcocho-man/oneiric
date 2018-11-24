@@ -421,6 +421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4303905558983282}
   - component: {fileID: 65314237742548666}
+  - component: {fileID: 114063273929241846}
   m_Layer: 13
   m_Name: Hands
   m_TagString: Untagged
@@ -594,8 +595,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1926196213081626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 4.72, z: 0.45}
+  m_LocalScale: {x: 6.1192, y: 2.9664, z: 2.1635}
   m_Children: []
   m_Father: {fileID: 4102441433732172}
   m_RootOrder: 3
@@ -950,6 +951,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114063273929241846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1926196213081626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6623d432c2b06924687bd6ce934c61d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114103414303995640
 MonoBehaviour:
   m_ObjectHideFlags: 1

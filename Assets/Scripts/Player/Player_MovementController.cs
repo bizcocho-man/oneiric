@@ -26,6 +26,7 @@ public class Player_MovementController : MonoBehaviour
     [HideInInspector] public bool isJumping;
     [HideInInspector] public bool isGrabbing;
     [HideInInspector] public bool isOnGround;
+    [HideInInspector] public bool isMovementDisabled;
 
     void Start()
     {
@@ -90,6 +91,10 @@ public class Player_MovementController : MonoBehaviour
         Vector3 newVelocity = rigidBody.velocity;
 
         newVelocity.x = canMove ? horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime : 0.0f;
+        newVelocity.x = isGrabbing ? newVelocity.x / 2f : newVelocity.x;
+
+        Debug.Log(isGrabbing);
+        
         //newVelocity.y = isJumping ? newVelocity.y = jumpForce : newVelocity.y + acceleration * Time.deltaTime;
 
         if (!isGrabbing)

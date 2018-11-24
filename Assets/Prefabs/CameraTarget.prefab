@@ -51,5 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3360420fa81c2cd48aff1425ff832666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  target: {fileID: 0}
   localOffset: {x: 0, y: 0, z: 0}
