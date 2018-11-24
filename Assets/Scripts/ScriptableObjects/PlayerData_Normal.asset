@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: PlayerData_Normal
   m_EditorClassIdentifier: 
   movementSpeed: 1000
-  jumpSpeed: 8
+  jumpSpeed: 12
   maxFallingSpeed: 40
   fallingAcceleraion: 40
   animatorSpeedMultiplier: 0.75

@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d11b81e3cf5e0645b6ab3dfb912e038, type: 3}
   m_Name: CapsuleColliderData_JumpIdle
   m_EditorClassIdentifier: 
-  center: {x: 0, y: 5.35, z: 0}
+  center: {x: 0, y: 4.62, z: 0}
   radius: 1.12
-  height: 5.03
+  height: 5.05
