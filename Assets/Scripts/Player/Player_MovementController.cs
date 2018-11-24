@@ -126,6 +126,7 @@ public class Player_MovementController : MonoBehaviour
         }
 
         playerAnimatorController.movementSpeed = canMove ? Mathf.Abs(horizontalAxis) : 0.0f;
+        playerAnimatorController.signedMovementSpeed = isFacingRight ? horizontalAxis : -horizontalAxis;
         playerAnimatorController.animatorSpeed = currentPlayerData.animatorSpeedMultiplier;
         playerAnimatorController.isFacingLeft = !isFacingRight;
         playerAnimatorController.isOnGround = isOnGround;

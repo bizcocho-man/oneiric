@@ -8,6 +8,7 @@ public class Player_AnimatorController : MonoBehaviour
 {
     // Movement
     [HideInInspector] public float movementSpeed;
+    [HideInInspector] public float signedMovementSpeed;
     [HideInInspector] public float animatorSpeed;
     [HideInInspector] public bool isFacingLeft;
     [HideInInspector] public bool isOnGround;
@@ -24,6 +25,7 @@ public class Player_AnimatorController : MonoBehaviour
 
     // Hashes
     private int hash_MovementSpeed = Animator.StringToHash("MovementSpeed");
+    private int hash_SignedMovementSpeed = Animator.StringToHash("SignedMovementSpeed");
     private int hash_AnimatorSpeed = Animator.StringToHash("AnimatorSpeed");
     private int hash_IsFacingLeft = Animator.StringToHash("IsFacingLeft");
     private int hash_IsOnGround = Animator.StringToHash("IsOnGround");
@@ -49,6 +51,7 @@ public class Player_AnimatorController : MonoBehaviour
 
         // Movement
         animator.SetFloat(hash_MovementSpeed, movementSpeed);
+        animator.SetFloat(hash_SignedMovementSpeed, signedMovementSpeed);
         animator.SetFloat(hash_AnimatorSpeed, animatorSpeed);
         animator.SetBool(hash_IsFacingLeft, isFacingLeft);
         animator.SetBool(hash_IsOnGround, isOnGround);
