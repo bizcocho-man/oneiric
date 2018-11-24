@@ -63,7 +63,7 @@ public class Interactable_GrabbableObject : InteractableObject
 
     override public void StartInteracting()
     {
-        if (!hasBeenInteracted)
+        if (!hasBeenInteracted && !isFalling)
         {
             Destroy(rigidbodyGO);
 
@@ -89,8 +89,6 @@ public class Interactable_GrabbableObject : InteractableObject
     override public void EndInteracting()
     {
         CreateRigidbody();
-        
-
 
         hasBeenInteracted = false;
         playerMovementController.isGrabbing = false;
@@ -98,6 +96,7 @@ public class Interactable_GrabbableObject : InteractableObject
         transform.parent = null;
 
         rigibodyPlayer.constraints = RigidbodyConstraints.FreezeRotationX
+                                   | RigidbodyConstraints.FreezeRotationY
                                    | RigidbodyConstraints.FreezeRotationZ
                                    | RigidbodyConstraints.FreezePositionZ;
 

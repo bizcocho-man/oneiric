@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckCollisionEnemy : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("MUERTE DESTRUCCIÓN");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

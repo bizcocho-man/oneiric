@@ -524,7 +524,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1598697841007450}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -16.5, y: 0.06, z: -52.9}
+  m_LocalPosition: {x: -48.01, y: 0.17, z: -26.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4500312687549632}
@@ -612,7 +612,7 @@ Transform:
   m_GameObject: {fileID: 1926196213081626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4.72, z: 0.45}
-  m_LocalScale: {x: 6.1192, y: 2.9664, z: 2.1635}
+  m_LocalScale: {x: 20.603348, y: 4.2240686, z: 2.1635}
   m_Children: []
   m_Father: {fileID: 4102441433732172}
   m_RootOrder: 3
@@ -1039,7 +1039,7 @@ MonoBehaviour:
   isJumping: 0
   isGrabbing: 0
   isOnGround: 0
-  isStartingToJump: 0
+  isMovementBlocked: 0
   isAgainstObstacle: 0
 --- !u!114 &114473935086051782
 MonoBehaviour:
@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layers:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 6144
   distance: 0.65
 --- !u!114 &114602255702315134
 MonoBehaviour:
@@ -1074,6 +1074,8 @@ MonoBehaviour:
   canJump: 0
   canLand: 0
   isJumping: 0
+  isInteractingPressable: 0
+  isInteractingGrabbable: 0
 --- !u!114 &114920767164688270
 MonoBehaviour:
   m_ObjectHideFlags: 1
