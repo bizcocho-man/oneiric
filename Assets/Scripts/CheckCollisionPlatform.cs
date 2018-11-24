@@ -6,7 +6,15 @@ public class CheckCollisionPlatform : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        other.transform.parent = transform;
+        if(other.GetComponent<Interactable_GrabbableObject>())
+        {
+            if (other.GetComponent<Interactable_GrabbableObject>().hasBeenInteracted)
+            {
+                return;
+            }   
+        }
+
+        other.transform.parent = transform.parent;
     }
 
     private void OnTriggerExit(Collider other)

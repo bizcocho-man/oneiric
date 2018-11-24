@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class Interactable_GrabbableObject : InteractableObject
 {
     private Rigidbody rigibodyPlayer;
     private Rigidbody rigidbodyGO;
-    private FixedJoint fixedJoint;
 
     private Player_MovementController playerMovementController;
 
@@ -19,82 +17,97 @@ public class Interactable_GrabbableObject : InteractableObject
     private void Start()
     {
         isFalling = true;
-        rigidbodyGO = GetComponent<Rigidbody>();
+        CreateRigidbody();
         rigibodyPlayer = FindObjectOfType<Player_MovementController>().GetComponent<Rigidbody>();
         playerMovementController = FindObjectOfType<Player_MovementController>();
         layerGround = LayerMask.GetMask("Ground");
 
         rigidbodyGO.constraints = RigidbodyConstraints.FreezeRotationX
-                   | RigidbodyConstraints.FreezeRotationZ
-                   | RigidbodyConstraints.FreezePositionZ;
+                                | RigidbodyConstraints.FreezeRotationZ
+                                | RigidbodyConstraints.FreezePositionZ;
+    }
+
+    private void CreateRigidbody()
+    {
+        if (!rigidbodyGO)
+        {
+            rigidbodyGO = gameObject.AddComponent<Rigidbody>();
+            rigidbodyGO.mass = 100;
+        }  
     }
 
     private void Update()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, transform.localScale.y * 3f, layerGround))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, transform.localScale.y * 4f, layerGround))
         {
-            if (rigidbodyGO.velocity.y == 0f && isFalling)
+            if (!hasBeenInteracted)
             {
-                isFalling = false;
-                fixedJoint = gameObject.AddComponent<FixedJoint>();
-
-                rigidbodyGO.mass = 1;
-            }
+                if (rigidbodyGO.velocity.y == 0f && isFalling)
+                {
+                    isFalling = false;
+                }
+            }     
         }
         else
         {
             if (!isFalling)
             {
                 isFalling = true;
-                fixedJoint.connectedBody = null;
-                Destroy(fixedJoint);
                 EndInteracting();
-
-                rigidbodyGO.mass = 100;
             }
         }
     }
 
     override public void StartInteracting()
     {
-        transform.parent = null;
-
         if (!hasBeenInteracted)
         {
+            Destroy(rigidbodyGO);
+
             rigidbodyGO.constraints = RigidbodyConstraints.FreezeRotationX
-                           | RigidbodyConstraints.FreezeRotationY
-                           | RigidbodyConstraints.FreezeRotationZ
-                           | RigidbodyConstraints.FreezePositionY
-                           | RigidbodyConstraints.FreezePositionZ;
+                                    | RigidbodyConstraints.FreezeRotationY
+                                    | RigidbodyConstraints.FreezeRotationZ
+                                    | RigidbodyConstraints.FreezePositionY
+                                    | RigidbodyConstraints.FreezePositionZ;
 
             rigibodyPlayer.constraints = RigidbodyConstraints.FreezeRotationX
-                           | RigidbodyConstraints.FreezeRotationY
-                           | RigidbodyConstraints.FreezeRotationZ
-                           | RigidbodyConstraints.FreezePositionY
-                           | RigidbodyConstraints.FreezePositionZ;
+                                       | RigidbodyConstraints.FreezeRotationY
+                                       | RigidbodyConstraints.FreezeRotationZ
+                                       | RigidbodyConstraints.FreezePositionY
+                                       | RigidbodyConstraints.FreezePositionZ;
 
             hasBeenInteracted = true;
             playerMovementController.isGrabbing = true;
-            fixedJoint.connectedBody = rigibodyPlayer;
+
+            transform.parent = playerMovementController.transform;
         }
     }
 
     override public void EndInteracting()
     {
+        CreateRigidbody();
+        
+
+
         hasBeenInteracted = false;
         playerMovementController.isGrabbing = false;
 
-        if (fixedJoint)
-        {
-            fixedJoint.connectedBody = null;
-        }
+        transform.parent = null;
 
         rigibodyPlayer.constraints = RigidbodyConstraints.FreezeRotationX
-                           | RigidbodyConstraints.FreezeRotationZ
-                           | RigidbodyConstraints.FreezePositionZ;
+                                   | RigidbodyConstraints.FreezeRotationZ
+                                   | RigidbodyConstraints.FreezePositionZ;
 
         rigidbodyGO.constraints = RigidbodyConstraints.FreezeRotationX
-                        | RigidbodyConstraints.FreezeRotationY
-                        | RigidbodyConstraints.FreezePositionZ;
+                                | RigidbodyConstraints.FreezeRotationY
+                                | RigidbodyConstraints.FreezePositionZ;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        // Draws a 5 unit long red line in front of the object
+        Gizmos.color = Color.red;
+        Vector3 direction = Vector3.down * transform.localScale.y * 4f;
+        Gizmos.DrawRay(transform.position, direction);
     }
 }
