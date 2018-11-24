@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationPercentage: 0
-  isMovementBlocked: 1
+  blockMovement: 0
   resetOnExit: 0
 --- !u!114 &114536612603190108
 MonoBehaviour:
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationPercentage: 0
-  isMovementBlocked: 1
+  blockMovement: 1
   resetOnExit: 1
 --- !u!114 &114652270525799390
 MonoBehaviour:
@@ -157,8 +157,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationPercentage: 0.9
-  isMovementBlocked: 0
+  blockMovement: 0
   resetOnExit: 0
+--- !u!114 &114795214983995858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8260ea6b909e404e850d7345f832647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationPercentage: 0
+  blockRotation: 1
+  resetOnExit: 1
 --- !u!114 &114803677870432980
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationPercentage: 0
-  isMovementBlocked: 0
+  blockMovement: 0
   resetOnExit: 0
 --- !u!114 &114872010577232936
 MonoBehaviour:
@@ -589,6 +603,7 @@ AnimatorState:
   - {fileID: 1101409721186050924}
   m_StateMachineBehaviours:
   - {fileID: 114536612603190108}
+  - {fileID: 114795214983995858}
   - {fileID: 114803677870432980}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
