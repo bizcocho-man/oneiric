@@ -8,6 +8,8 @@ public class Interactable_PressableObject : InteractableObject
 
     private BehaviourObject behaviourObject;
 
+    public bool isReusable;
+
     private void Start()
     {
         behaviourObject = objectToActivate.GetComponent<BehaviourObject>();
@@ -26,8 +28,8 @@ public class Interactable_PressableObject : InteractableObject
     {
         if (!hasBeenInteracted)
         {
-            hasBeenInteracted = true;
-            canBeInteracted = false;
+            hasBeenInteracted = !isReusable;
+            canBeInteracted = isReusable;
         }
     }
 }

@@ -13,12 +13,18 @@ public class CheckCollisionInteractable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        playerInteractable.interactableObject = other.gameObject;
+        if (!playerInteractable.interactableObject)
+        {
+            playerInteractable.interactableObject = other.gameObject;
+        }   
     }
 
     private void OnTriggerStay(Collider other)
     {
-        playerInteractable.interactableObject = other.gameObject;
+        if (!playerInteractable.interactableObject)
+        {
+            playerInteractable.interactableObject = other.gameObject;
+        }
     }
 
     private void OnTriggerExit(Collider other)
