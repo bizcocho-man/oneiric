@@ -20,4 +20,9 @@ public class Player_FeetCollision : MonoBehaviour
     {
         playerMovementController.isOnGround = false;
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        playerMovementController.isOnGround = true;
+    }
 }

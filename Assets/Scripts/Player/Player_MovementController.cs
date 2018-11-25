@@ -14,6 +14,7 @@ public class Player_MovementController : MonoBehaviour
 
     // Input
     private float horizontalAxis;
+    private int horizontalAxisRaw;
     private float inputJump;
 
     // Movement
@@ -28,6 +29,7 @@ public class Player_MovementController : MonoBehaviour
     [HideInInspector] public bool isOnGround;
     [HideInInspector] public bool isMovementBlocked;
     [HideInInspector] public bool isAgainstObstacle;
+    public float movementSpeedMultiplier = 1.0f;
 
     void Start()
     {
@@ -52,6 +54,7 @@ public class Player_MovementController : MonoBehaviour
     private void GetInput()
     {
         horizontalAxis = Input.GetAxis("Horizontal");
+        horizontalAxisRaw = (int)Input.GetAxisRaw("Horizontal");
         inputJump = Input.GetAxisRaw("Vertical");
 
         canMove = !isMovementBlocked && !isAgainstObstacle;
@@ -93,7 +96,7 @@ public class Player_MovementController : MonoBehaviour
         // Set CurrentVelocity based on input
         Vector3 newVelocity = rigidBody.velocity;
 
-        newVelocity.x = canMove ? horizontalAxis * currentPlayerData.movementSpeed * Time.deltaTime : 0.0f;
+        newVelocity.x = canMove ? horizontalAxis * currentPlayerData.movementSpeed * movementSpeedMultiplier * Time.deltaTime : 0.0f;
         newVelocity.x = isGrabbing ? newVelocity.x / 2f : newVelocity.x;
 
         if (!isGrabbing)
@@ -127,6 +130,7 @@ public class Player_MovementController : MonoBehaviour
 
         playerAnimatorController.movementSpeed = canMove ? Mathf.Abs(horizontalAxis) : 0.0f;
         playerAnimatorController.signedMovementSpeed = isFacingRight ? horizontalAxis : -horizontalAxis;
+        playerAnimatorController.clampedMovementSpeed = Mathf.Abs(horizontalAxisRaw);
         playerAnimatorController.animatorSpeed = currentPlayerData.animatorSpeedMultiplier;
         playerAnimatorController.isFacingLeft = !isFacingRight;
         playerAnimatorController.isOnGround = isOnGround;

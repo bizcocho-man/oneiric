@@ -13,7 +13,11 @@ public class SMB_BlockRotation : StateMachineBehaviour
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        playerMovementController = animator.transform.GetComponent<Player_MovementController>();
+        if (playerMovementController == null)
+        {
+            playerMovementController = animator.transform.GetComponent<Player_MovementController>();
+        }
+        
         hasBeenApplied = false;
     }
 

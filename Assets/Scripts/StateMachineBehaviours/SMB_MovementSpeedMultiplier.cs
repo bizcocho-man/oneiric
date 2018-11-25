@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SMB_BlockMovement : StateMachineBehaviour
+public class SMB_MovementSpeedMultiplier : StateMachineBehaviour
 {
     [Range(0.0f, 1.0f)] public float animationPercentage;
-    public bool blockMovement;
+    public float multiplierValue = 1.0f;
     public bool resetOnExit;
 
     private Player_MovementController playerMovementController;
@@ -17,7 +17,6 @@ public class SMB_BlockMovement : StateMachineBehaviour
         {
             playerMovementController = animator.transform.GetComponent<Player_MovementController>();
         }
-        
         hasBeenApplied = false;
     }
 
@@ -30,7 +29,7 @@ public class SMB_BlockMovement : StateMachineBehaviour
             return;
         }
 
-        playerMovementController.isMovementBlocked = blockMovement;
+        playerMovementController.movementSpeedMultiplier = multiplierValue;
         hasBeenApplied = true;
     }
 
@@ -41,6 +40,6 @@ public class SMB_BlockMovement : StateMachineBehaviour
             return;
         }
 
-        playerMovementController.isMovementBlocked = false;
+        playerMovementController.movementSpeedMultiplier = 1.0f;
     }
 }
