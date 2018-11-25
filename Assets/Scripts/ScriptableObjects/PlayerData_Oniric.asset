@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: PlayerData_Oniric
   m_EditorClassIdentifier: 
   movementSpeed: 1200
-  jumpSpeed: 23
-  maxFallingSpeed: 60
-  fallingAcceleraion: 60
+  jumpSpeed: 18
+  maxFallingSpeed: 40
+  fallingAcceleraion: 40
   animatorSpeedMultiplier: 1
   hairMaterial: {fileID: 2100000, guid: 8342d80a4b8b9974fb814235a8f37b45, type: 2}
   skinMaterial: {fileID: 2100000, guid: 8342d80a4b8b9974fb814235a8f37b45, type: 2}

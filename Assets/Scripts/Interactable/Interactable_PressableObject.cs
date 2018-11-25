@@ -12,7 +12,10 @@ public class Interactable_PressableObject : InteractableObject
 
     private void Start()
     {
-        behaviourObject = objectToActivate.GetComponent<BehaviourObject>();
+        if (objectToActivate != null)
+        {
+            behaviourObject = objectToActivate.GetComponent<BehaviourObject>();
+        }
     }
 
     override public void StartInteracting()

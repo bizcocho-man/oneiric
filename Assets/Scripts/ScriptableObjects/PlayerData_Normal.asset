@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: PlayerData_Normal
   m_EditorClassIdentifier: 
   movementSpeed: 1000
-  jumpSpeed: 12
-  maxFallingSpeed: 40
-  fallingAcceleraion: 40
+  jumpSpeed: 11
+  maxFallingSpeed: 50
+  fallingAcceleraion: 60
   animatorSpeedMultiplier: 0.75
   hairMaterial: {fileID: 2100000, guid: 6b124c5bf006d2140be14324afb92b8e, type: 2}
   skinMaterial: {fileID: 2100000, guid: 373e02c8e90e9644bbd0ad8de16d4fc2, type: 2}
