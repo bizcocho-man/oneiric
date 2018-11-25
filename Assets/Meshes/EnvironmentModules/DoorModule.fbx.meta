@@ -1,11 +1,12 @@
 fileFormatVersion: 2
-guid: 5ff953a18ebaf5b449cf7bc5388952cb
+guid: 7e2899df1d11275479d9a809a582ec68
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: No Name
+    2100000: DoorModule
+    2100002: DoorModuleDetail
     2300000: //RootNode
     3300000: //RootNode
     4300000: DoorModule

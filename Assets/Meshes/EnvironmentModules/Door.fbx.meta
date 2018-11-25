@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 7236869ed661f4d4daf332fb87d946bf
+guid: 7aaca4da6011f204ead6656c205e3b88
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
     2100000: Door
-    2100002: DoorLight
+    2100002: DoorDetail
     2300000: //RootNode
     3300000: //RootNode
     4300000: Door
@@ -49,7 +49,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
