@@ -1,15 +1,16 @@
 fileFormatVersion: 2
-guid: 2f475cd4f11844b48bf595f22feaef55
+guid: b9f7ef266b658f44fb99d698885dc5b2
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: No Name
-    2100002: WoodBox
+    2100000: WallDoor
+    2100002: WallDoorDetail2
+    2100004: WallDoorDetail
     2300000: //RootNode
     3300000: //RootNode
-    4300000: WoodBox
+    4300000: Cube
   externalObjects: {}
   materials:
     importMaterials: 1

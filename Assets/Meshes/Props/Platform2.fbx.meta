@@ -1,15 +1,16 @@
 fileFormatVersion: 2
-guid: 2f475cd4f11844b48bf595f22feaef55
+guid: 9070999614a93064fa3161685950f738
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: No Name
-    2100002: WoodBox
+    2100000: Platform
+    2100002: PlatformDetail3
+    2100004: PlatformDetail2
     2300000: //RootNode
     3300000: //RootNode
-    4300000: WoodBox
+    4300000: Platform2
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -49,7 +50,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
