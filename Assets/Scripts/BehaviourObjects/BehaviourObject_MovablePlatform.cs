@@ -39,7 +39,7 @@ public class BehaviourObject_MovablePlatform : BehaviourObject
 
     private void FixedUpdate()
     {
-        if (isActivated && doOnceInProgress)
+        if (isActivated || doOnceInProgress)
         {
             if (fraction < 1)
             {
