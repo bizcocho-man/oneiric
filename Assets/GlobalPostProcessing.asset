@@ -75,22 +75,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
   m_Name: DepthOfField
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
   focusDistance:
     overrideState: 1
-    value: 24.1
+    value: 39.9
   aperture:
     overrideState: 1
-    value: 0.97
+    value: 1.45
   focalLength:
     overrideState: 1
-    value: 100.5
+    value: 102.9
   kernelSize:
     overrideState: 1
-    value: 1
+    value: 0
 --- !u!114 &114657226118525552
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65e486e4de6e5448a8fbb43dc8756a0, type: 3}
   m_Name: Grain
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
     value: 1
@@ -111,7 +111,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0.136
+    value: 0.1
   size:
     overrideState: 1
     value: 0.3
