@@ -31,7 +31,7 @@ public class Player_ShapeController : MonoBehaviour
 	
 	private void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && playerMovementController.isOnGround)
         {
             normalShape = !normalShape;
 

@@ -7,18 +7,30 @@ public class BehaviourObject_Door : BehaviourObject
     public GameObject LeftDoor;
     public GameObject RightDoor;
 
+    public MeshRenderer internLeftDoor;
+    public MeshRenderer internRightDoor;
+
+    public Material newMaterial;
+
     private BoxCollider boxCollider;
     private Animation anim;
 
     private void Start()
     {
-        boxCollider = GetComponent<BoxCollider>();
         anim = GetComponent<Animation>();
     }
 
+    // Ugly solution, but no time to waste
     override public void ActivateBehaviour()
     {
-        boxCollider.enabled = false;
         anim.Play();
+
+        Material[] sharedMaterials = internLeftDoor.sharedMaterials;
+        sharedMaterials[1] = newMaterial;
+        internLeftDoor.sharedMaterials = sharedMaterials;
+
+        sharedMaterials = internRightDoor.sharedMaterials;
+        sharedMaterials[1] = newMaterial;
+        internRightDoor.sharedMaterials = sharedMaterials;
     }
 }
