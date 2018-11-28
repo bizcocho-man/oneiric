@@ -60,9 +60,9 @@ public class Player_Interactable : MonoBehaviour
             case tag_InteractablePressable:
                 playerAnimatorController.isInteractingPressable = value;
                 break;
-            case tag_InteractableGrabbable:
-                playerAnimatorController.isInteractingGrabbable = value;
-                break;
+            //case tag_InteractableGrabbable:
+            //    playerAnimatorController.isGrabbing = value;
+            //    break;
         }
     }
 }

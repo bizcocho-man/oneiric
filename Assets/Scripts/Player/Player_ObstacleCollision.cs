@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player_ObstacleCollision : MonoBehaviour
 {
     [SerializeField] private LayerMask layers;
-    [SerializeField] private float distance;
+    public float distance = 2.3f;
 
     private Player_MovementController playerMovementController;
     private bool hit;
@@ -18,7 +18,7 @@ public class Player_ObstacleCollision : MonoBehaviour
     private void Update()
     {
         hit = Physics.Raycast(transform.position, transform.forward, distance, layers);
-        playerMovementController.isAgainstObstacle = hit;
+        playerMovementController.isAgainstObstacle = hit && playerMovementController.isOnGround;
 
         Debug.DrawRay(transform.position, transform.forward * distance, hit ? Color.red : Color.green);
     }

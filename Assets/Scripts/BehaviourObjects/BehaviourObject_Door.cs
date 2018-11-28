@@ -10,7 +10,7 @@ public class BehaviourObject_Door : BehaviourObject
     public MeshRenderer internLeftDoor;
     public MeshRenderer internRightDoor;
 
-    public Material newMaterial;
+    public Material openMaterial;
 
     private BoxCollider boxCollider;
     private Animation anim;
@@ -26,11 +26,11 @@ public class BehaviourObject_Door : BehaviourObject
         anim.Play();
 
         Material[] sharedMaterials = internLeftDoor.sharedMaterials;
-        sharedMaterials[1] = newMaterial;
+        sharedMaterials[1] = openMaterial;
         internLeftDoor.sharedMaterials = sharedMaterials;
 
         sharedMaterials = internRightDoor.sharedMaterials;
-        sharedMaterials[1] = newMaterial;
+        sharedMaterials[1] = openMaterial;
         internRightDoor.sharedMaterials = sharedMaterials;
     }
 }

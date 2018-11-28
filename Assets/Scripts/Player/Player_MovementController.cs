@@ -138,5 +138,6 @@ public class Player_MovementController : MonoBehaviour
         playerAnimatorController.canJump = canJump;
         playerAnimatorController.canLand = canLand;
         playerAnimatorController.isJumping = isJumping;
+        playerAnimatorController.isGrabbing = isGrabbing;
     }
 }

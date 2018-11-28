@@ -49,7 +49,7 @@ public class BehaviourObject_MovablePlatformClosed : BehaviourObject
         isActivated = false;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (isActivated && doOnceInProgress)
         {

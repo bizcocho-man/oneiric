@@ -7,6 +7,11 @@ public class BehaviourObject_DoorTimer : BehaviourObject
     public GameObject leftDoor;
     public GameObject rightDoor;
 
+    public MeshRenderer internLeftDoor;
+    public MeshRenderer internRightDoor;
+    public Material openMaterial;
+    private Material closeMaterial;
+
     public float time;
     private float currentTime;
 
@@ -21,8 +26,8 @@ public class BehaviourObject_DoorTimer : BehaviourObject
     private void Start()
     {
         animationComponent = GetComponent<Animation>();
-        boxCollider = GetComponent<BoxCollider>();
-
+        //boxCollider = GetComponent<BoxCollider>();
+        closeMaterial = internLeftDoor.sharedMaterials[1];
     }
 
     override public void ActivateBehaviour()
@@ -32,9 +37,17 @@ public class BehaviourObject_DoorTimer : BehaviourObject
         if (!isActivating)
         {
             isActivating = true;
-            boxCollider.enabled = false;
+            //boxCollider.enabled = false;
             animationComponent.clip = OpenDoor;
             animationComponent.Play();
+
+            Material[] sharedMaterials = internLeftDoor.sharedMaterials;
+            sharedMaterials[1] = openMaterial;
+            internLeftDoor.sharedMaterials = sharedMaterials;
+
+            sharedMaterials = internRightDoor.sharedMaterials;
+            sharedMaterials[1] = openMaterial;
+            internRightDoor.sharedMaterials = sharedMaterials;
         }  
     }
 
@@ -56,9 +69,17 @@ public class BehaviourObject_DoorTimer : BehaviourObject
         if (isActivating)
         {
             isActivating = false;
-            boxCollider.enabled = true;
+            //boxCollider.enabled = true;
             animationComponent.clip = CloseDoor;
             animationComponent.Play();
+
+            Material[] sharedMaterials = internLeftDoor.sharedMaterials;
+            sharedMaterials[1] = closeMaterial;
+            internLeftDoor.sharedMaterials = sharedMaterials;
+
+            sharedMaterials = internRightDoor.sharedMaterials;
+            sharedMaterials[1] = closeMaterial;
+            internRightDoor.sharedMaterials = sharedMaterials;
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Interactable_PressableObject : InteractableObject
 {
     public GameObject objectToActivate;
-    public float timeToWaitBeforeStart;
+    public float timeToWaitBeforeStart = 0.25f;
     public Material interactedMaterial;
 
     private BehaviourObject behaviourObject;
@@ -49,7 +49,6 @@ public class Interactable_PressableObject : InteractableObject
 
         if (!hasBeenInteracted)
         {
-            yield return new WaitForSeconds(timeToWaitBeforeStart);
             behaviourObject.ActivateBehaviour();
 
             Material[] sharedMaterials = meshRenderer.sharedMaterials;

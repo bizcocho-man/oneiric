@@ -525,7 +525,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1598697841007450}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -48.01, y: 0.17, z: -26.9}
+  m_LocalPosition: {x: -43.2, y: 0.14, z: -31.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4500312687549632}
@@ -612,8 +612,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1926196213081626}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.72, z: 0.45}
-  m_LocalScale: {x: 20.603348, y: 4.2240686, z: 2.1635}
+  m_LocalPosition: {x: -0, y: 4.41, z: 0.95}
+  m_LocalScale: {x: 13.122364, y: 4.16192, z: 3.195826}
   m_Children: []
   m_Father: {fileID: 4102441433732172}
   m_RootOrder: 3
@@ -1033,8 +1033,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layers:
     serializedVersion: 2
-    m_Bits: 65536
-  distance: 2.5
+    m_Bits: 71680
+  distance: 2.3
 --- !u!114 &114178497638859240
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1054,6 +1054,7 @@ MonoBehaviour:
   isOnGround: 0
   isMovementBlocked: 0
   isAgainstObstacle: 0
+  movementSpeedMultiplier: 1
 --- !u!114 &114473935086051782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1077,6 +1078,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0
+  signedMovementSpeed: 0
+  clampedMovementSpeed: 0
   animatorSpeed: 0
   isFacingLeft: 0
   isOnGround: 0
@@ -1085,7 +1088,7 @@ MonoBehaviour:
   canLand: 0
   isJumping: 0
   isInteractingPressable: 0
-  isInteractingGrabbable: 0
+  isGrabbing: 0
 --- !u!114 &114920767164688270
 MonoBehaviour:
   m_ObjectHideFlags: 1

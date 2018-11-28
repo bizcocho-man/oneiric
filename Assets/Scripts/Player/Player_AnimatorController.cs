@@ -20,7 +20,7 @@ public class Player_AnimatorController : MonoBehaviour
 
     // Interaction
     [HideInInspector] public bool isInteractingPressable;
-    [HideInInspector] public bool isInteractingGrabbable;
+    [HideInInspector] public bool isGrabbing;
 
     private Animator animator;
 
@@ -36,7 +36,7 @@ public class Player_AnimatorController : MonoBehaviour
     private int hash_CanLand = Animator.StringToHash("CanLand");
     private int hash_IsJumping = Animator.StringToHash("IsJumping");
     private int hash_IsInteractingPressable = Animator.StringToHash("IsInteractingPressable");
-    private int hash_IsInteractingGrabbable = Animator.StringToHash("IsInteractingGrabbable");
+    private int hash_IsGrabbing = Animator.StringToHash("IsGrabbing");
 
     private void Start()
     {
@@ -65,6 +65,6 @@ public class Player_AnimatorController : MonoBehaviour
 
         // Interaction
         animator.SetBool(hash_IsInteractingPressable, isInteractingPressable);
-        animator.SetBool(hash_IsInteractingGrabbable, isInteractingGrabbable);
+        animator.SetBool(hash_IsGrabbing, isGrabbing);
     }
 }
