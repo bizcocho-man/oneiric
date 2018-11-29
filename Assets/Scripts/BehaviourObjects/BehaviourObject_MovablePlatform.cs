@@ -14,7 +14,6 @@ public class BehaviourObject_MovablePlatform : BehaviourObject
     private bool isActivated;
     private float fraction = 0f;
     public bool doOnce;
-    private bool doOnceInProgress;
 
     private void Start()
     {
@@ -25,11 +24,6 @@ public class BehaviourObject_MovablePlatform : BehaviourObject
     override public void ActivateBehaviour()
     {
         isActivated = true;
-
-        if (doOnce)
-        {
-            doOnceInProgress = true;
-        }
     }
 
     public void DeactivateBehaviour()
@@ -37,13 +31,13 @@ public class BehaviourObject_MovablePlatform : BehaviourObject
         isActivated = false;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (isActivated || doOnceInProgress)
+        if (isActivated)
         {
             if (fraction < 1)
             {
-                fraction += Time.fixedDeltaTime * speed;
+                fraction += Time.deltaTime * speed;
                 transform.position = Vector3.Lerp(start, dest, fraction);
             }
             else
@@ -56,7 +50,7 @@ public class BehaviourObject_MovablePlatform : BehaviourObject
 
                 if (doOnce)
                 {
-                    doOnceInProgress = false;
+                    DeactivateBehaviour();
                 }
             }
         } 
