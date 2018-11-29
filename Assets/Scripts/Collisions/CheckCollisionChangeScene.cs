@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class CheckCollisionChangeScene : MonoBehaviour
 {
-    public string nameScene;
+    public int sceneId;
 
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(nameScene);
+        SceneManager.LoadScene(sceneId);
     }
 }
