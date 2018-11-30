@@ -7,22 +7,30 @@ public class Behaviour_Enemy : MonoBehaviour {
     public float speed;
     public float dstY;
     public float dstX;
+    public float timeToStart;
 
     private Vector3 dest;
     private Vector3 start;
     private float fraction = 0f;
+    private bool hasStarted;
 
     private void Start()
     {
         start = transform.position;
         dest = new Vector3(transform.position.x + dstX, transform.position.y + dstY, transform.position.z);
+        StartCoroutine(StartDelayed());
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+        if (!hasStarted)
+        {
+            return;
+        }
+
         if (fraction < 1)
         {
-            fraction += Time.fixedDeltaTime * speed;
+            fraction += Time.deltaTime * speed;
             transform.position = Vector3.Lerp(start, dest, fraction);
         }
         else
@@ -33,5 +41,11 @@ public class Behaviour_Enemy : MonoBehaviour {
 
             fraction = 0;
         }
+    }
+
+    private IEnumerator StartDelayed()
+    {
+        yield return new WaitForSeconds(timeToStart);
+        hasStarted = true;
     }
 }
