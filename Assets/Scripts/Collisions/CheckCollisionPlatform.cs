@@ -14,11 +14,28 @@ public class CheckCollisionPlatform : MonoBehaviour {
             }   
         }
 
-        other.transform.parent = transform.parent;
+        if(other.gameObject.tag == "Player")
+        {
+            other.transform.parent.parent = transform.parent;
+        }
+        else if (other.gameObject.tag == "Interactable_Grabbable")
+        {
+            other.transform.parent = transform.parent;
+
+            Debug.Log(other.transform.parent);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        other.transform.parent = null;
+        if (other.gameObject.tag == "Player")
+        {
+            other.transform.parent.gameObject.transform.parent = null;
+        }
+        else if (other.gameObject.tag == "Interactable_Grabbable")
+        {
+            // I don't understand
+            //other.transform.parent = null;
+        }      
     }
 }
