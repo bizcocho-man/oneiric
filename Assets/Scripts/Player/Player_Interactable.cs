@@ -14,6 +14,8 @@ public class Player_Interactable : MonoBehaviour
     private const string tag_InteractablePressable = "Interactable_Pressable";
     private const string tag_InteractableGrabbable = "Interactable_Grabbable";
 
+    private bool isButtonReleased = true;
+
     private void Start()
     {
         playerMovementController = GetComponent<Player_MovementController>();
@@ -41,13 +43,15 @@ public class Player_Interactable : MonoBehaviour
 
         if (playerMovementController.isOnGround)
         {
-            if (Input.GetButtonDown("Fire1") && interactableObjectComponent.canBeInteracted)
+            if (Input.GetButtonDown("Fire1") && interactableObjectComponent.canBeInteracted && isButtonReleased)
             {
+                isButtonReleased = false;
                 interactableObjectComponent.StartInteracting();
                 UpdateAnimatorVariables(true);
             }
             else if (Input.GetButtonUp("Fire1"))
             {
+                isButtonReleased = true;
                 interactableObjectComponent.EndInteracting();
                 UpdateAnimatorVariables(false);
             }

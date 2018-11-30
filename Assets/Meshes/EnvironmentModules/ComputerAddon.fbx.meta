@@ -1,15 +1,16 @@
 fileFormatVersion: 2
-guid: 1a30ef35797ea9848989bb5e137e07ef
+guid: 86b9b22f1a95cab41a871fe28488344e
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: WallButton
-    2100002: WallButtonLight
+    2100000: ComputerAddon
+    2100002: ComputerAddonDetail2
+    2100004: ComputerAddonDetail
     2300000: //RootNode
     3300000: //RootNode
-    4300000: WallButton
+    4300000: ComputerAddon
   externalObjects: {}
   materials:
     importMaterials: 1
