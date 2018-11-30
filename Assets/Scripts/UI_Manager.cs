@@ -27,6 +27,8 @@ public class UI_Manager : MonoBehaviour
 
     [SerializeField] Button currentButton;
 
+    [SerializeField] GameObject Camera;
+
     private Animation anim;
 
     private bool isButtonReleased = true;
@@ -34,6 +36,7 @@ public class UI_Manager : MonoBehaviour
     private bool isCreditsEnabled = false;
     private bool isFirstTime = true;
 
+    public bool canPause = false;
     public bool isPausedGame = true;
 
     private void Start()
@@ -53,7 +56,7 @@ public class UI_Manager : MonoBehaviour
     // Get Inputs
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        if (Input.GetButtonDown("Pause") && canPause)
         {
             if (isPausedGame)
             {
@@ -70,24 +73,24 @@ public class UI_Manager : MonoBehaviour
             return;
         }
 
-        if (isButtonReleased == false && Input.GetKey(KeyCode.DownArrow) == false && Input.GetKey(KeyCode.DownArrow) == false && Input.GetKey(KeyCode.LeftControl) == false)
+        if (isButtonReleased == false && Input.GetAxisRaw("Vertical") == 0 && Input.GetAxisRaw("Vertical") == 0 && !Input.GetButtonDown("Fire1"))
         {
             isButtonReleased = true;
         }
         
-        if (Input.GetKeyDown(KeyCode.DownArrow) && isButtonReleased && isOptionEnabled == false && isCreditsEnabled == false)
+        if (Input.GetAxisRaw("Vertical") < 0 && isButtonReleased && isOptionEnabled == false && isCreditsEnabled == false)
         {
             SetCurrentButton(false);
 
             isButtonReleased = false;
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) && isButtonReleased && isOptionEnabled == false && isCreditsEnabled == false)
+        else if (Input.GetAxisRaw("Vertical") > 0 && isButtonReleased && isOptionEnabled == false && isCreditsEnabled == false)
         {
             SetCurrentButton(true);
 
             isButtonReleased = false;
         }
-        else if (Input.GetKey(KeyCode.LeftControl) && isButtonReleased)
+        else if (Input.GetButtonDown("Submit") && isButtonReleased)
         {
             currentButton.onClick.Invoke();
             isButtonReleased = false;
@@ -148,6 +151,7 @@ public class UI_Manager : MonoBehaviour
     {
         if (isFirstTime)
         {
+            Camera.SetActive(true);
             isFirstTime = false;
             anim.Play("FadeUIInit");
             Time.timeScale = 1f;

@@ -31,7 +31,12 @@ public class Player_ShapeController : MonoBehaviour
 	
 	private void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && playerMovementController.isOnGround)
+        if (UI_Manager.Instance.isPausedGame)
+        {
+            return;
+        }
+
+        if (Input.GetButtonDown("Fire2") && playerMovementController.isOnGround)
         {
             normalShape = !normalShape;
 

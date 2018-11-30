@@ -15,7 +15,7 @@ public class Player_MovementController : MonoBehaviour
     // Input
     private float horizontalAxis;
     private int horizontalAxisRaw;
-    private float inputJump;
+    private bool inputJump;
 
     // Movement
     private Vector3 currentVelocity;
@@ -39,7 +39,11 @@ public class Player_MovementController : MonoBehaviour
 
     void Update()
     {
-        GetInput();
+        if (!UI_Manager.Instance.isPausedGame)
+        {
+            GetInput();
+        }
+
         DetectJumping();
         DetectDirection();
         CalculateCurrentVelocity();
@@ -55,14 +59,14 @@ public class Player_MovementController : MonoBehaviour
     {
         horizontalAxis = Input.GetAxis("Horizontal");
         horizontalAxisRaw = (int)Input.GetAxisRaw("Horizontal");
-        inputJump = Input.GetAxisRaw("Vertical");
+        inputJump = Input.GetButton("Jump");
 
         canMove = !isMovementBlocked && !isAgainstObstacle;
     }
 
     private void DetectJumping()
     {
-        if (inputJump > 0 && !isJumping && isOnGround)
+        if (inputJump && !isJumping && isOnGround)
         {
             canJump = true;
         }

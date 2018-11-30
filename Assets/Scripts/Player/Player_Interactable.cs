@@ -28,19 +28,25 @@ public class Player_Interactable : MonoBehaviour
         }
 
         InteractableObject interactableObjectComponent = interactableObject.GetComponent<InteractableObject>();
+
         if (interactableObjectComponent == null)
+        {
+            return;
+        }
+
+        if (UI_Manager.Instance.isPausedGame)
         {
             return;
         }
 
         if (playerMovementController.isOnGround)
         {
-            if (Input.GetKeyDown(KeyCode.E) && interactableObjectComponent.canBeInteracted)
+            if (Input.GetButtonDown("Fire1") && interactableObjectComponent.canBeInteracted)
             {
                 interactableObjectComponent.StartInteracting();
                 UpdateAnimatorVariables(true);
             }
-            else if (Input.GetKeyUp(KeyCode.E))
+            else if (Input.GetButtonUp("Fire1"))
             {
                 interactableObjectComponent.EndInteracting();
                 UpdateAnimatorVariables(false);

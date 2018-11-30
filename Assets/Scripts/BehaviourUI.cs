@@ -11,7 +11,8 @@ public class BehaviourUI : MonoBehaviour
     public void EndAnimationInit()
     {
         UI_Manager.Instance.Resume();
-        
+        UI_Manager.Instance.canPause = true;
+
         gameObject.SetActive(false);
 
         foreach (Text text in texts)
@@ -19,7 +20,7 @@ public class BehaviourUI : MonoBehaviour
             text.color = new Color(text.color.r, text.color.g, text.color.b, 1f);
         }
 
-        image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
+        image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);  
     }
 
     public void EndAnimationIn()

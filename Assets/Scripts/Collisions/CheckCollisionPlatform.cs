@@ -21,8 +21,6 @@ public class CheckCollisionPlatform : MonoBehaviour {
         else if (other.gameObject.tag == "Interactable_Grabbable")
         {
             other.transform.parent = transform.parent;
-
-            Debug.Log(other.transform.parent);
         }
     }
 
