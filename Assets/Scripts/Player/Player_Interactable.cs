@@ -68,7 +68,16 @@ public class Player_Interactable : MonoBehaviour
         switch (interactableObject.tag)
         {
             case tag_InteractablePressable:
-                playerAnimatorController.isInteractingPressable = value;
+                if (value && !playerAnimatorController.isInteractingPressable)
+                {
+                    playerAnimatorController.isInteractingPressable = value;
+                }
+
+                if (!value)
+                {
+                    playerAnimatorController.isInteractingPressable = value;
+                }
+                
                 break;
             //case tag_InteractableGrabbable:
             //    playerAnimatorController.isGrabbing = value;

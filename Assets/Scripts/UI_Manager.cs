@@ -51,7 +51,7 @@ public class UI_Manager : MonoBehaviour
     [SerializeField] Text Action;
 
     private Color hovered = new Color32(141, 170, 145, 255);
-    private Color unhovered = new Color32(127, 123, 130, 190);
+    private Color unhovered = new Color32(94, 93, 92, 40);
 
     private void Start()
     {

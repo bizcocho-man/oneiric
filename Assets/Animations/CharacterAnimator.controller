@@ -191,6 +191,20 @@ MonoBehaviour:
   animationPercentage: 0
   blockMovement: 1
   resetOnExit: 1
+--- !u!114 &114304851733310448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7de0a97bce4b245a1a310cfd4697f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationPercentage: 0
+  isPressing: 1
+  resetOnExit: 1
 --- !u!114 &114329368789403652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1815,7 +1829,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: JumpIdleStart
-  m_Speed: 1
+  m_Speed: 1.25
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101113379541519258}
@@ -1853,6 +1867,7 @@ AnimatorState:
   - {fileID: 114536612603190108}
   - {fileID: 114795214983995858}
   - {fileID: 114803677870432980}
+  - {fileID: 114304851733310448}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 1
   m_WriteDefaultValues: 1
@@ -1931,7 +1946,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: IdleLanding
-  m_Speed: 1
+  m_Speed: 1.25
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101866850394051156}
@@ -2048,7 +2063,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: JumpIdleLand
-  m_Speed: 1
+  m_Speed: 1.25
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101842305357843746}

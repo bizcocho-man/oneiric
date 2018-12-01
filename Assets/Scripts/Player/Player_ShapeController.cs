@@ -36,7 +36,7 @@ public class Player_ShapeController : MonoBehaviour
             return;
         }
 
-        if (Input.GetButtonDown("Fire2") && playerMovementController.isOnGround)
+        if (Input.GetButtonDown("Fire2") && playerMovementController.isOnGround && !playerMovementController.isGrabbing && !playerMovementController.isPressing)
         {
             normalShape = !normalShape;
 

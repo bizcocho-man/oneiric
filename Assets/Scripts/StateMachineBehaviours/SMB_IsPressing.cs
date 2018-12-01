@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SMB_IsJumping : StateMachineBehaviour
+public class SMB_IsPressing : StateMachineBehaviour
 {
     [Range(0.0f, 1.0f)] public float animationPercentage;
-    public bool isJumping;
+    public bool isPressing;
     public bool resetOnExit;
 
     private Player_MovementController playerMovementController;
@@ -17,7 +17,7 @@ public class SMB_IsJumping : StateMachineBehaviour
         {
             playerMovementController = animator.transform.GetComponent<Player_MovementController>();
         }
-        
+
         hasBeenApplied = false;
     }
 
@@ -30,7 +30,7 @@ public class SMB_IsJumping : StateMachineBehaviour
             return;
         }
 
-        playerMovementController.isJumping = isJumping;
+        playerMovementController.isPressing = isPressing;
         hasBeenApplied = true;
     }
 
@@ -41,6 +41,6 @@ public class SMB_IsJumping : StateMachineBehaviour
             return;
         }
 
-        playerMovementController.isJumping = false;
+        playerMovementController.isPressing = false;
     }
 }

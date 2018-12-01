@@ -27,6 +27,7 @@ public class Player_MovementController : MonoBehaviour
     [HideInInspector] public bool isJumping;
     [HideInInspector] public bool isGrabbing;
     [HideInInspector] public bool isOnGround;
+    [HideInInspector] public bool isPressing;
     [HideInInspector] public bool isMovementBlocked;
     [HideInInspector] public bool isAgainstObstacle;
     public float movementSpeedMultiplier = 1.0f;
