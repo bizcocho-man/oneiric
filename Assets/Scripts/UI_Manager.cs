@@ -241,6 +241,6 @@ public class UI_Manager : MonoBehaviour
 
     public void HideTutorial()
     {
-        anim.Play("FadeOutTutorial");
+        anim.Play("FadeOutTutorial"); 
     }
 }
