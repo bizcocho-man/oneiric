@@ -20,7 +20,10 @@ public class CheckCollisionPlatform : MonoBehaviour {
         }
         else if (other.gameObject.tag == "Interactable_Grabbable")
         {
-            other.transform.parent = transform.parent;
+            if (other.transform.parent.parent)
+            {
+                other.transform.parent = transform.parent;
+            }    
         }
     }
 
@@ -28,7 +31,10 @@ public class CheckCollisionPlatform : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            other.transform.parent.gameObject.transform.parent = null;
+            if (other.transform.parent.parent)
+            {
+                other.transform.parent.parent = null;
+            }      
         }
         else if (other.gameObject.tag == "Interactable_Grabbable")
         {

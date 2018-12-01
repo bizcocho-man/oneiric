@@ -56,7 +56,15 @@ public class UI_Manager : MonoBehaviour
 
         anim = UI.GetComponent<Animation>();
 
-        Pause();
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            Pause();
+        }
+        else
+        {
+            isFirstTime = false;
+            Resume();
+        }
     }
 
     // Get Inputs
