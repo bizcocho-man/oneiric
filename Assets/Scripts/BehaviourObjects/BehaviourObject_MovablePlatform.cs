@@ -15,9 +15,12 @@ public class BehaviourObject_MovablePlatform : BehaviourObject
     private float fraction = 0f;
     public bool doOnce;
 
+    private Vector3 startPosition;
+
     private void Start()
     {
         start = transform.position;
+        startPosition = transform.position;
         dest = new Vector3(transform.position.x + dstX, transform.position.y + dstY, transform.position.z + dstZ);
     }
 
@@ -60,6 +63,6 @@ public class BehaviourObject_MovablePlatform : BehaviourObject
     {
         fraction = 0f;
         isActivated = false;
-        transform.position = start;
+        transform.position = startPosition;
     }
 }

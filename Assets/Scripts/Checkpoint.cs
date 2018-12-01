@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
+    public int priority;
+
     private CheckpointRestart checkpointRestart;
 
     private void Start()
@@ -13,11 +15,17 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        CheckpointManager.Instance.SetCurrentCheckpoint(this);
+        if (priority > CheckpointManager.Instance.GetCurrentCheckpoint().priority)
+        {
+            CheckpointManager.Instance.SetCurrentCheckpoint(this);
+        }
     }
 
     public void RestartLevel()
     {
-        checkpointRestart.RestartObjects();
+        if (checkpointRestart != null)
+        {
+            checkpointRestart.RestartObjects();
+        }
     }
 }
