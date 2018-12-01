@@ -70,6 +70,7 @@ public class UI_Manager : MonoBehaviour
             FinishInit();
             canPause = true;
             Resume();
+            Audio_Manager.Instance.InitializeAudio();
         }
     }
 
@@ -182,6 +183,7 @@ public class UI_Manager : MonoBehaviour
             Camera.SetActive(true);
             isFirstTime = false;
             anim.Play("FadeUIInit");
+            Audio_Manager.Instance.InitializeAudio();
             //Time.timeScale = 1f;
 
             return;
