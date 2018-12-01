@@ -63,6 +63,9 @@ public class UI_Manager : MonoBehaviour
         else
         {
             isFirstTime = false;
+            canReceiveInput = true;
+            FinishInit();
+            canPause = true;
             Resume();
         }
     }

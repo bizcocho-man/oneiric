@@ -23,7 +23,7 @@ public class Behaviour_Enemy : MonoBehaviour {
 
     private void Update()
     {
-        if (!hasStarted)
+        if (!hasStarted || UI_Manager.Instance.isPausedGame)
         {
             return;
         }
