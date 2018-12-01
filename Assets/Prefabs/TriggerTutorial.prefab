@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4841297046944578}
   - component: {fileID: 65453455347748740}
   - component: {fileID: 114868157674125868}
-  m_Layer: 19
+  m_Layer: 18
   m_Name: TriggerTutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1003788543019704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -21, y: 4.16, z: -27.97}
+  m_LocalPosition: {x: -29.635162, y: 0.14000022, z: -30.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
