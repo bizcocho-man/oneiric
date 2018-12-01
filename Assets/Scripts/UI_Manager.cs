@@ -39,6 +39,7 @@ public class UI_Manager : MonoBehaviour
     private bool isCreditsEnabled = false;
     private bool isFirstTime = true;
 
+    [HideInInspector] public bool canReceiveInput = true;
     [HideInInspector] public bool canPause = false;
     [HideInInspector] public bool isPausedGame = true;
 
@@ -144,7 +145,8 @@ public class UI_Manager : MonoBehaviour
     }
 
     private void Pause()
-    { 
+    {
+        canReceiveInput = false;
         isPausedGame = true;
         UI.SetActive(true);
         UI_Main.SetActive(true);

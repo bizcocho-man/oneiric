@@ -22,7 +22,9 @@ public class BehaviourUI : MonoBehaviour
             text.color = new Color(text.color.r, text.color.g, text.color.b, 1f);
         }
 
-        image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);  
+        image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
+
+        UI_Manager.Instance.canReceiveInput = true;
     }
 
     public void EndAnimationIn()
@@ -33,6 +35,7 @@ public class BehaviourUI : MonoBehaviour
     public void EndAnimationOut()
     {
         UI_Manager.Instance.UI_Main.SetActive(false);
+        UI_Manager.Instance.canReceiveInput = true;
     }
 
     public void EndAnimationInDeath()
