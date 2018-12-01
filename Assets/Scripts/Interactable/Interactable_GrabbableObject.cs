@@ -26,9 +26,12 @@ public class Interactable_GrabbableObject : InteractableObject
         rigibodyPlayer = FindObjectOfType<Player_MovementController>().GetComponent<Rigidbody>();
         playerMovementController = FindObjectOfType<Player_MovementController>();
 
-        rigidbodyGO.constraints = RigidbodyConstraints.FreezeRotationX
+        if (rigidbodyGO)
+        {
+            rigidbodyGO.constraints = RigidbodyConstraints.FreezeRotationX
                                 | RigidbodyConstraints.FreezeRotationZ
                                 | RigidbodyConstraints.FreezePositionZ;
+        }   
     }
 
     private void CreateRigidbody()
@@ -36,7 +39,11 @@ public class Interactable_GrabbableObject : InteractableObject
         if (!rigidbodyGO)
         {
             rigidbodyGO = gameObject.AddComponent<Rigidbody>();
-            rigidbodyGO.mass = 100;
+
+            if (rigidbodyGO)
+            {
+                rigidbodyGO.mass = 100;
+            }
         }  
     }
 
@@ -49,9 +56,12 @@ public class Interactable_GrabbableObject : InteractableObject
         {
             if (!hasBeenInteracted)
             {
-                if (rigidbodyGO.velocity.y == 0f && isFalling)
+                if (rigidbodyGO)
                 {
-                    isFalling = false;
+                    if (rigidbodyGO.velocity.y == 0f && isFalling)
+                    {
+                        isFalling = false;
+                    }
                 }
             }     
         }

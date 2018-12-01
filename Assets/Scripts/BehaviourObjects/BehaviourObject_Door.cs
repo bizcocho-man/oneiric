@@ -23,9 +23,12 @@ public class BehaviourObject_Door : BehaviourObject
     {
         anim = GetComponent<Animation>();
 
-        startMaterial = internLeftDoor.sharedMaterials[1];
-        startLeftDoorPosition = internLeftDoor.transform.position;
-        startRightDootPosition = internRightDoor.transform.position;
+        if (internLeftDoor)
+        {
+            startMaterial = internLeftDoor.sharedMaterials[1];
+            startLeftDoorPosition = internLeftDoor.transform.position;
+            startRightDootPosition = internRightDoor.transform.position;
+        }
     }
 
     // Ugly solution, but no time to waste
