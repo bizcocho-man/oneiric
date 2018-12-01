@@ -39,6 +39,8 @@ public class UI_Manager : MonoBehaviour
     private bool isCreditsEnabled = false;
     private bool isFirstTime = true;
 
+    private bool isDeactivateInput = false;
+
     [HideInInspector] public bool canReceiveInput = true;
     [HideInInspector] public bool canPause = false;
     [HideInInspector] public bool isPausedGame = true;
@@ -60,6 +62,11 @@ public class UI_Manager : MonoBehaviour
     // Get Inputs
     private void Update()
     {
+        if (isDeactivateInput)
+        {
+            return;
+        }
+
         if (Input.GetButtonDown("Pause") && canPause)
         {
             if (isPausedGame)
@@ -157,6 +164,7 @@ public class UI_Manager : MonoBehaviour
     {
         if (isFirstTime)
         {
+            isDeactivateInput = true;
             Camera.SetActive(true);
             isFirstTime = false;
             anim.Play("FadeUIInit");
@@ -187,5 +195,10 @@ public class UI_Manager : MonoBehaviour
     {
         UI_End.SetActive(true);
         anim.Play("EndAnimation");
+    }
+
+    public void FinishInit()
+    {
+        isDeactivateInput = false;
     }
 }
