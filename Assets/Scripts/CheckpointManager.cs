@@ -26,11 +26,11 @@ public class CheckpointManager : MonoBehaviour
         return currentCheckpoint;
     }
 
-    public void SetCurrentCheckpoint(GameObject newCheckpoint)
+    public void SetCurrentCheckpoint(Checkpoint newCheckpoint)
     {
         if (newCheckpoint != null)
         {
-            currentCheckpoint = newCheckpoint.GetComponent<Checkpoint>();
+            currentCheckpoint = newCheckpoint;
         }
     }
 }

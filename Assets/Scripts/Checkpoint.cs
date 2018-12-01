@@ -13,7 +13,7 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        CheckpointManager.Instance.SetCurrentCheckpoint(this.gameObject);
+        CheckpointManager.Instance.SetCurrentCheckpoint(this);
     }
 
     public void RestartLevel()
