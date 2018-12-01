@@ -11,12 +11,11 @@ public class TutorialTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        UI_Manager.Instance.UI_Tutorial.SetActive(true);
         UI_Manager.Instance.ShowTutorial(keyboardButton, gamepadButton, action);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        UI_Manager.Instance.UI_Tutorial.SetActive(false);
+        UI_Manager.Instance.HideTutorial();
     }
 }

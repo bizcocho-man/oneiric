@@ -227,6 +227,9 @@ public class UI_Manager : MonoBehaviour
 
     public void ShowTutorial(Sprite keyboardButtonImage, Sprite controllerButtonImage, string actionText)
     {
+        UI_Tutorial.SetActive(true);
+        anim.Play("FadeInTutorial");    
+
         KeyboardButton.sprite = keyboardButtonImage;
         KeyboardButton.preserveAspect = true;
 
@@ -234,5 +237,10 @@ public class UI_Manager : MonoBehaviour
         ControllerButton.preserveAspect = true;
 
         Action.text = actionText;
+    }
+
+    public void HideTutorial()
+    {
+        anim.Play("FadeOutTutorial");
     }
 }

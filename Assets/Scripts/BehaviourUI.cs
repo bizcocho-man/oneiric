@@ -14,7 +14,7 @@ public class BehaviourUI : MonoBehaviour
 
     public void EndAnimationInit()
     {
-        UI_Manager.Instance.Resume();
+        //UI_Manager.Instance.Resume();
         UI_Manager.Instance.canPause = true;
         UI_Manager.Instance.isDeactivateInput = false;
 
@@ -52,5 +52,10 @@ public class BehaviourUI : MonoBehaviour
     public void EndGame()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void SetFalseTutorial()
+    {
+        UI_Manager.Instance.UI_Tutorial.SetActive(false);
     }
 }
