@@ -5,15 +5,18 @@ using UnityEngine.UI;
 
 public class TutorialTrigger : MonoBehaviour
 {
-    [SerializeField] private Canvas tutorialCanvas;
-    [SerializeField] private Text text1;
-    [SerializeField] private Image keyboardButton;
-    [SerializeField] private Text separator;
-    [SerializeField] private Image gamepadButton;
-    [SerializeField] private Text text2;
+    [SerializeField] private Sprite keyboardButton;
+    [SerializeField] private Sprite gamepadButton;
+    [SerializeField] private string action;
 
     private void OnTriggerEnter(Collider other)
     {
-        tutorialCanvas.enabled = true;
+        UI_Manager.Instance.UI_Tutorial.SetActive(true);
+        UI_Manager.Instance.ShowTutorial(keyboardButton, gamepadButton, action);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        UI_Manager.Instance.UI_Tutorial.SetActive(false);
     }
 }

@@ -16,8 +16,9 @@ public class BehaviourUI : MonoBehaviour
     {
         UI_Manager.Instance.Resume();
         UI_Manager.Instance.canPause = true;
+        UI_Manager.Instance.isDeactivateInput = false;
 
-        gameObject.SetActive(false); 
+        //gameObject.SetActive(false); 
 
         /*foreach (Text text in texts)
         {

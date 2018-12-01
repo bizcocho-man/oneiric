@@ -21,12 +21,13 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
-    [SerializeField] GameObject UI;
+    public GameObject UI;
     public GameObject UI_Main;
     [SerializeField] GameObject UI_Option;
     [SerializeField] GameObject UI_Credits;
     public GameObject UI_Death;
     [SerializeField] GameObject UI_End;
+    public GameObject UI_Tutorial;
 
     [SerializeField] Button currentButton;
 
@@ -39,11 +40,15 @@ public class UI_Manager : MonoBehaviour
     private bool isCreditsEnabled = false;
     private bool isFirstTime = true;
 
-    private bool isDeactivateInput = false;
+    public bool isDeactivateInput = false;
 
     [HideInInspector] public bool canReceiveInput = true;
     [HideInInspector] public bool canPause = false;
     [HideInInspector] public bool isPausedGame = true;
+
+    [SerializeField] Image KeyboardButton;
+    [SerializeField] Image ControllerButton;
+    [SerializeField] Text Action;
 
     private Color hovered = new Color32(141, 170, 145, 255);
     private Color unhovered = new Color32(127, 123, 130, 190);
@@ -191,6 +196,7 @@ public class UI_Manager : MonoBehaviour
 
         //Time.timeScale = 1f;
         isPausedGame = false;
+        canPause = true;
         anim.Play("FadeUIOut");
     }
 
@@ -217,5 +223,16 @@ public class UI_Manager : MonoBehaviour
     {
         isDeactivateInput = false;
         isPausedGame = true;
+    }
+
+    public void ShowTutorial(Sprite keyboardButtonImage, Sprite controllerButtonImage, string actionText)
+    {
+        KeyboardButton.sprite = keyboardButtonImage;
+        KeyboardButton.preserveAspect = true;
+
+        ControllerButton.sprite = controllerButtonImage;
+        ControllerButton.preserveAspect = true;
+
+        Action.text = actionText;
     }
 }
