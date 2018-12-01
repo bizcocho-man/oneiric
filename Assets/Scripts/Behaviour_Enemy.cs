@@ -49,6 +49,7 @@ public class Behaviour_Enemy : MonoBehaviour {
     private IEnumerator StartDelayed()
     {
         yield return new WaitForSeconds(timeToStart);
+
         hasStarted = true;
     }
 
@@ -58,7 +59,8 @@ public class Behaviour_Enemy : MonoBehaviour {
         transform.position = startPosition;
         start = startPosition;
         dest = new Vector3(transform.position.x + dstX, transform.position.y + dstY, transform.position.z);
+        hasStarted = false;
 
-        StartDelayed();
+        StartCoroutine(StartDelayed());
     }
 }

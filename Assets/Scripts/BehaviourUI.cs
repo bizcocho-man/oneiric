@@ -27,7 +27,7 @@ public class BehaviourUI : MonoBehaviour
         image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
 
         UI_Manager.Instance.canReceiveInput = true;
-        UI_Manager.Instance.FinishInit();
+        UI_Manager.Instance.isPausedGame = false;
     }
 
     public void EndAnimationIn()

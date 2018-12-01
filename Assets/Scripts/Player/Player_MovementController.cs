@@ -62,7 +62,7 @@ public class Player_MovementController : MonoBehaviour
             UI_Manager.Instance.FadeInDeath();
         }
 
-        horizontalAxis = Input.GetAxis("Horizontal");
+        horizontalAxis = Input.GetAxisRaw("Horizontal");
         horizontalAxisClamped = horizontalAxis > 0.5 ? 1 : horizontalAxis < -0.5 ? -1 : 0;
         inputJump = Input.GetButton("Jump");
 

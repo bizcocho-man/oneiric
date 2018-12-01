@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CheckCollisionEndGame : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
+        UI_Manager.Instance.isPausedGame = true;
         UI_Manager.Instance.EndGame();
     }
 }

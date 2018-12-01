@@ -182,12 +182,12 @@ public class UI_Manager : MonoBehaviour
             Camera.SetActive(true);
             isFirstTime = false;
             anim.Play("FadeUIInit");
-            Time.timeScale = 1f;
+            //Time.timeScale = 1f;
 
             return;
         }
 
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
         isPausedGame = false;
         anim.Play("FadeUIOut");
     }
@@ -214,5 +214,6 @@ public class UI_Manager : MonoBehaviour
     public void FinishInit()
     {
         isDeactivateInput = false;
+        isPausedGame = true;
     }
 }
