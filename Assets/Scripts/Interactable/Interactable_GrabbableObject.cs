@@ -121,9 +121,12 @@ public class Interactable_GrabbableObject : InteractableObject
 
     public override void ResetObject()
     {
-        rigidbodyGO.constraints = RigidbodyConstraints.FreezeRotationX
+        if (rigidbodyGO != null)
+        {
+            rigidbodyGO.constraints = RigidbodyConstraints.FreezeRotationX
                                 | RigidbodyConstraints.FreezeRotationZ
                                 | RigidbodyConstraints.FreezePositionZ;
+        }
 
         transform.SetParent(transform.root);
         transform.position = startPosition;
