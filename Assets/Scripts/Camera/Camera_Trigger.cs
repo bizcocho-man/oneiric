@@ -9,7 +9,14 @@ public class Camera_Trigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        cameraToDeactivate.SetActive(false);
-        cameraToActivate.SetActive(true);
+        if (cameraToDeactivate != null)
+        {
+            cameraToDeactivate.SetActive(false);
+        }
+        
+        if (cameraToActivate != null)
+        {
+            cameraToActivate.SetActive(true);
+        }
     }
 }

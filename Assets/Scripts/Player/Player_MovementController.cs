@@ -14,7 +14,7 @@ public class Player_MovementController : MonoBehaviour
 
     // Input
     private float horizontalAxis;
-    private int horizontalAxisRaw;
+    private int horizontalAxisClamped;
     private bool inputJump;
 
     // Movement
@@ -39,12 +39,12 @@ public class Player_MovementController : MonoBehaviour
 
     void Update()
     {
-        if (!UI_Manager.Instance.isPausedGame)
+        if (!UI_Manager.Instance.isPausedGame && UI_Manager.Instance.canReceiveInput)
         {
             GetInput();
+            DetectJumping();
         }
 
-        DetectJumping();
         DetectDirection();
         CalculateCurrentVelocity();
         UpdateAnimatorVariables();
@@ -57,8 +57,13 @@ public class Player_MovementController : MonoBehaviour
 
     private void GetInput()
     {
+        if (Input.GetButtonDown("RestartLevel"))
+        {
+            UI_Manager.Instance.FadeInDeath();
+        }
+
         horizontalAxis = Input.GetAxis("Horizontal");
-        horizontalAxisRaw = (int)Input.GetAxisRaw("Horizontal");
+        horizontalAxisClamped = horizontalAxis > 0 ? 1 : horizontalAxis < 0 ? -1 : 0;
         inputJump = Input.GetButton("Jump");
 
         canMove = !isMovementBlocked && !isAgainstObstacle;
@@ -100,7 +105,7 @@ public class Player_MovementController : MonoBehaviour
         // Set CurrentVelocity based on input
         Vector3 newVelocity = rigidBody.velocity;
 
-        newVelocity.x = canMove ? horizontalAxis * currentPlayerData.movementSpeed * movementSpeedMultiplier * Time.deltaTime : 0.0f;
+        newVelocity.x = canMove ? horizontalAxisClamped * currentPlayerData.movementSpeed * movementSpeedMultiplier * Time.deltaTime : 0.0f;
         newVelocity.x = isGrabbing ? newVelocity.x / 2f : newVelocity.x;
 
         if (!isGrabbing)
@@ -132,9 +137,9 @@ public class Player_MovementController : MonoBehaviour
             return;
         }
 
-        playerAnimatorController.movementSpeed = canMove ? Mathf.Abs(horizontalAxis) : 0.0f;
-        playerAnimatorController.signedMovementSpeed = isFacingRight ? horizontalAxis : -horizontalAxis;
-        playerAnimatorController.clampedMovementSpeed = Mathf.Abs(horizontalAxisRaw);
+        playerAnimatorController.movementSpeed = canMove ? Mathf.Abs(horizontalAxisClamped) : 0.0f;
+        playerAnimatorController.signedMovementSpeed = isFacingRight ? horizontalAxisClamped : -horizontalAxisClamped;
+        playerAnimatorController.clampedMovementSpeed = Mathf.Abs(horizontalAxisClamped);
         playerAnimatorController.animatorSpeed = currentPlayerData.animatorSpeedMultiplier;
         playerAnimatorController.isFacingLeft = !isFacingRight;
         playerAnimatorController.isOnGround = isOnGround;

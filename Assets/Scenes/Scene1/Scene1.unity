@@ -5015,7 +5015,7 @@ Prefab:
     - target: {fileID: 114573042191543058, guid: 045fccce9c44eca4da0240b3f5d6bf5b,
         type: 2}
       propertyPath: m_FollowOffset.x
-      value: 52.5
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 114573042191543058, guid: 045fccce9c44eca4da0240b3f5d6bf5b,
         type: 2}
@@ -8227,6 +8227,7 @@ MonoBehaviour:
   UI_End: {fileID: 1053631601}
   currentButton: {fileID: 1061741292}
   Camera: {fileID: 534669902}
+  canReceiveInput: 1
   canPause: 0
   isPausedGame: 1
 --- !u!224 &246315604
@@ -14752,7 +14753,7 @@ Prefab:
     - target: {fileID: 114118907370314870, guid: 3f142979b6252de4ca051506a6c2dca0,
         type: 2}
       propertyPath: time
-      value: 11.5
+      value: 12.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f142979b6252de4ca051506a6c2dca0, type: 2}
@@ -20077,7 +20078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10bbbae5b13cdb54cb1392388bdd8906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneId: 0
+  sceneId: 1
 --- !u!65 &645802717
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46017,6 +46018,7 @@ GameObject:
   - component: {fileID: 1480773406}
   - component: {fileID: 1480773408}
   - component: {fileID: 1480773407}
+  - component: {fileID: 1480773409}
   m_Layer: 18
   m_Name: CameraTrigger1
   m_TagString: Untagged
@@ -46060,8 +46062,20 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.98, y: 15.6, z: 20.51}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 112.94501, y: 15.6, z: 20.51}
+  m_Center: {x: -51.982506, y: 0, z: 0}
+--- !u!114 &1480773409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1480773405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61385703846e24348a37bb06114926d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 0
 --- !u!1001 &1480839444
 Prefab:
   m_ObjectHideFlags: 0
@@ -60844,7 +60858,7 @@ Prefab:
     - target: {fileID: 114111715438899690, guid: 4cb05eeaa183c6241ba99965cd5f9e0b,
         type: 2}
       propertyPath: timer
-      value: 11.5
+      value: 12.3
       objectReference: {fileID: 0}
     - target: {fileID: 114111715438899690, guid: 4cb05eeaa183c6241ba99965cd5f9e0b,
         type: 2}
