@@ -55,4 +55,11 @@ public class BehaviourObject_MovablePlatform : BehaviourObject
             }
         } 
     }
+
+    public override void ResetObejct()
+    {
+        fraction = 0f;
+        isActivated = false;
+        transform.position = start;
+    }
 }

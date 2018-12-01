@@ -38,6 +38,7 @@ public class BehaviourUI : MonoBehaviour
     public void EndAnimationInDeath()
     {
         player.transform.position = CheckpointManager.Instance.GetCurrentCheckpoint().transform.position;
+        CheckpointManager.Instance.GetCurrentCheckpoint().RestartLevel();
         UI_Manager.Instance.FadeOutDeath();
     }
 

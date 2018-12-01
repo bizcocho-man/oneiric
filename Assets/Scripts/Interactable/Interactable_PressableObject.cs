@@ -13,6 +13,8 @@ public class Interactable_PressableObject : InteractableObject
 
     public bool isReusable;
 
+    private Material startMaterial;
+
     private void Start()
     {
         if (objectToActivate != null)
@@ -58,5 +60,15 @@ public class Interactable_PressableObject : InteractableObject
             hasBeenInteracted = !isReusable;
             canBeInteracted = isReusable;
         }
+    }
+
+    public override void ResetObject()
+    {
+        hasBeenInteracted = false;
+        canBeInteracted = true;
+
+        Material[] sharedMaterials = meshRenderer.sharedMaterials;
+        sharedMaterials[0] = startMaterial;
+        meshRenderer.sharedMaterials = sharedMaterials;
     }
 }

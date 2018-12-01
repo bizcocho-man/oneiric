@@ -15,8 +15,12 @@ public class Interactable_GrabbableObject : InteractableObject
     private bool isFalling;    
     private bool hit;
 
+    private Vector3 startPosition;
+
     private void Start()
     {
+        startPosition = transform.position;
+
         isFalling = true;
         CreateRigidbody();
         rigibodyPlayer = FindObjectOfType<Player_MovementController>().GetComponent<Rigidbody>();
@@ -103,5 +107,15 @@ public class Interactable_GrabbableObject : InteractableObject
         rigidbodyGO.constraints = RigidbodyConstraints.FreezeRotationX
                                 | RigidbodyConstraints.FreezeRotationY
                                 | RigidbodyConstraints.FreezePositionZ;
+    }
+
+    public override void ResetObject()
+    {
+        rigidbodyGO.constraints = RigidbodyConstraints.FreezeRotationX
+                                | RigidbodyConstraints.FreezeRotationZ
+                                | RigidbodyConstraints.FreezePositionZ;
+
+        transform.SetParent(transform.root);
+        transform.position = startPosition;
     }
 }

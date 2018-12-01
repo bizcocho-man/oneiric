@@ -15,9 +15,17 @@ public class BehaviourObject_Door : BehaviourObject
     private BoxCollider boxCollider;
     private Animation anim;
 
+    private Material startMaterial;
+    private Vector3 startLeftDoorPosition;
+    public Vector3 startRightDootPosition;
+     
     private void Start()
     {
         anim = GetComponent<Animation>();
+
+        startMaterial = internLeftDoor.sharedMaterials[1];
+        startLeftDoorPosition = internLeftDoor.transform.position;
+        startRightDootPosition = internRightDoor.transform.position;
     }
 
     // Ugly solution, but no time to waste
@@ -32,5 +40,19 @@ public class BehaviourObject_Door : BehaviourObject
         sharedMaterials = internRightDoor.sharedMaterials;
         sharedMaterials[1] = openMaterial;
         internRightDoor.sharedMaterials = sharedMaterials;
+    }
+
+    public override void ResetObejct()
+    {
+        Material[] sharedMaterials = internLeftDoor.sharedMaterials;
+        sharedMaterials[1] = startMaterial;
+        internLeftDoor.sharedMaterials = sharedMaterials;
+
+        sharedMaterials = internRightDoor.sharedMaterials;
+        sharedMaterials[1] = startMaterial;
+        internRightDoor.sharedMaterials = sharedMaterials;
+
+        internLeftDoor.transform.position = startLeftDoorPosition;
+        internRightDoor.transform.position = startRightDootPosition;
     }
 }

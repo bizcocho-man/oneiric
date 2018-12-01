@@ -7,7 +7,7 @@ public class CheckpointManager : MonoBehaviour
     private static CheckpointManager _instance;
     public static CheckpointManager Instance { get { return _instance; } }
 
-    private GameObject currentCheckpoint;
+    private Checkpoint currentCheckpoint;
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class CheckpointManager : MonoBehaviour
         }
     }
 
-    public GameObject GetCurrentCheckpoint()
+    public Checkpoint GetCurrentCheckpoint()
     {
         return currentCheckpoint;
     }
@@ -30,7 +30,7 @@ public class CheckpointManager : MonoBehaviour
     {
         if (newCheckpoint != null)
         {
-            currentCheckpoint = newCheckpoint;
+            currentCheckpoint = newCheckpoint.GetComponent<Checkpoint>();
         }
     }
 }

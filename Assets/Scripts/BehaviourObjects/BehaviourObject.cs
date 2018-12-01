@@ -8,4 +8,9 @@ public class BehaviourObject : MonoBehaviour
     {
 
     }
+
+    virtual public void ResetObejct()
+    {
+
+    }
 }

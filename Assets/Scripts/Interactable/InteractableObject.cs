@@ -16,4 +16,9 @@ public class InteractableObject : MonoBehaviour
     {
         Debug.Log("EndInteracting");
     }
+
+    virtual public void ResetObject()
+    {
+
+    }
 }
