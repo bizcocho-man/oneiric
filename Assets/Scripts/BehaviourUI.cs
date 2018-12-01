@@ -10,17 +10,19 @@ public class BehaviourUI : MonoBehaviour
     [SerializeField] Image image;
     [SerializeField] Text[] texts;
 
+    private Color unhovered = new Color32(127, 123, 130, 90);
+
     public void EndAnimationInit()
     {
         UI_Manager.Instance.Resume();
         UI_Manager.Instance.canPause = true;
 
-        gameObject.SetActive(false);
+        gameObject.SetActive(false); 
 
-        foreach (Text text in texts)
+        /*foreach (Text text in texts)
         {
-            text.color = new Color(text.color.r, text.color.g, text.color.b, 1f);
-        }
+            text.color = unhovered;
+        }*/
 
         image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
 

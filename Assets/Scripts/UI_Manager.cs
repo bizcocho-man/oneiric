@@ -45,6 +45,9 @@ public class UI_Manager : MonoBehaviour
     [HideInInspector] public bool canPause = false;
     [HideInInspector] public bool isPausedGame = true;
 
+    private Color hovered = new Color32(141, 170, 145, 255);
+    private Color unhovered = new Color32(127, 123, 130, 190);
+
     private void Start()
     {
         //Disable mouse
@@ -137,7 +140,7 @@ public class UI_Manager : MonoBehaviour
 
     void SetColorButton(bool isActivated)
     {
-        currentButton.GetComponentInChildren<Text>().color = isActivated ? Color.cyan : Color.white;
+        currentButton.GetComponentInChildren<Text>().color = isActivated ? hovered : unhovered;
     }
 
     public void ClickPlay()
