@@ -14,9 +14,12 @@ public class Behaviour_Enemy : MonoBehaviour {
     private float fraction = 0f;
     private bool hasStarted;
 
+    private Vector3 startPosition;
+
     private void Start()
     {
         start = transform.position;
+        startPosition = start;
         dest = new Vector3(transform.position.x + dstX, transform.position.y + dstY, transform.position.z);
         StartCoroutine(StartDelayed());
     }
@@ -47,5 +50,15 @@ public class Behaviour_Enemy : MonoBehaviour {
     {
         yield return new WaitForSeconds(timeToStart);
         hasStarted = true;
+    }
+
+    public void Restart()
+    {
+        fraction = 0f;
+        transform.position = startPosition;
+        start = startPosition;
+        dest = new Vector3(transform.position.x + dstX, transform.position.y + dstY, transform.position.z);
+
+        StartDelayed();
     }
 }

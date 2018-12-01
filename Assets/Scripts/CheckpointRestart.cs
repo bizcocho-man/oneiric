@@ -6,6 +6,7 @@ public class CheckpointRestart : MonoBehaviour
 {
     public InteractableObject[] interactableObjectsToReset;
     public BehaviourObject[] behaviourObjectsToReset;
+    public Behaviour_Enemy[] behaviourEnemiesToReset;
 
     public void RestartObjects()
     {
@@ -17,6 +18,11 @@ public class CheckpointRestart : MonoBehaviour
         for (int i = 0; i < behaviourObjectsToReset.Length; ++i)
         {
             behaviourObjectsToReset[i].ResetObejct();
+        }
+
+        for (int i = 0; i < behaviourEnemiesToReset.Length; ++i)
+        {
+            behaviourEnemiesToReset[i].Restart();
         }
     }
 }
