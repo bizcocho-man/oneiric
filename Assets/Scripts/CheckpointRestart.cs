@@ -9,7 +9,6 @@ public class CheckpointRestart : MonoBehaviour
 
     public void RestartObjects()
     {
-        Debug.LogError("RESTARTING");
         for (int i = 0; i < interactableObjectsToReset.Length; ++i)
         {
             interactableObjectsToReset[i].ResetObject();
