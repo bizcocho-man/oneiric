@@ -25,7 +25,8 @@ public class UI_Manager : MonoBehaviour
     public GameObject UI_Main;
     [SerializeField] GameObject UI_Option;
     [SerializeField] GameObject UI_Credits;
-    [SerializeField] public GameObject UI_Death;
+    public GameObject UI_Death;
+    [SerializeField] GameObject UI_End;
 
     [SerializeField] Button currentButton;
 
@@ -182,6 +183,7 @@ public class UI_Manager : MonoBehaviour
 
     public void EndGame()
     {
+        UI_End.SetActive(true);
         anim.Play("EndAnimation");
     }
 }
