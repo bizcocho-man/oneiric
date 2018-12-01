@@ -14,6 +14,7 @@ public class Interactable_PressableObject : InteractableObject
     public bool isReusable;
 
     private Material startMaterial;
+    private bool firstUse = true;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class Interactable_PressableObject : InteractableObject
         }
 
         meshRenderer = GetComponent<MeshRenderer>();
+        startMaterial = meshRenderer.sharedMaterials[0];
     }
 
     override public void StartInteracting()
@@ -54,8 +56,21 @@ public class Interactable_PressableObject : InteractableObject
             behaviourObject.ActivateBehaviour();
 
             Material[] sharedMaterials = meshRenderer.sharedMaterials;
-            sharedMaterials[0] = interactedMaterial;
-            meshRenderer.sharedMaterials = sharedMaterials;
+
+            if (firstUse)
+            {
+                firstUse = false;
+
+                sharedMaterials[0] = interactedMaterial;
+                meshRenderer.sharedMaterials = sharedMaterials;
+            }
+            else
+            {
+                firstUse = true;
+
+                sharedMaterials[0] = startMaterial;
+                meshRenderer.sharedMaterials = sharedMaterials;
+            }
 
             hasBeenInteracted = !isReusable;
             canBeInteracted = isReusable;
