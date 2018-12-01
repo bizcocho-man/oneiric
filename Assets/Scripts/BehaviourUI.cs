@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BehaviourUI : MonoBehaviour
 {
+    public GameObject player; 
     [SerializeField] Image image;
     [SerializeField] Text[] texts;
 
@@ -30,6 +32,17 @@ public class BehaviourUI : MonoBehaviour
 
     public void EndAnimationOut()
     {
-        gameObject.SetActive(false);
+        UI_Manager.Instance.UI_Main.SetActive(false);
+    }
+
+    public void EndAnimationInDeath()
+    {
+        player.transform.position = CheckpointManager.Instance.GetCurrentCheckpoint().transform.position;
+        UI_Manager.Instance.FadeOutDeath();
+    }
+
+    public void EndGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }

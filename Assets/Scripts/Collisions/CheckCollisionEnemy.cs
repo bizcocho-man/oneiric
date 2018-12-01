@@ -14,6 +14,9 @@ public class CheckCollisionEnemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        player.transform.position = CheckpointManager.Instance.GetCurrentCheckpoint().transform.position;
+       
+        UI_Manager.Instance.FadeInDeath();
+
+        //player.transform.position = CheckpointManager.Instance.GetCurrentCheckpoint().transform.position;
     }
 }

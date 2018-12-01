@@ -22,8 +22,10 @@ public class UI_Manager : MonoBehaviour
     }
 
     [SerializeField] GameObject UI;
+    public GameObject UI_Main;
     [SerializeField] GameObject UI_Option;
     [SerializeField] GameObject UI_Credits;
+    [SerializeField] public GameObject UI_Death;
 
     [SerializeField] Button currentButton;
 
@@ -36,8 +38,8 @@ public class UI_Manager : MonoBehaviour
     private bool isCreditsEnabled = false;
     private bool isFirstTime = true;
 
-    public bool canPause = false;
-    public bool isPausedGame = true;
+    [HideInInspector] public bool canPause = false;
+    [HideInInspector] public bool isPausedGame = true;
 
     private void Start()
     {
@@ -144,6 +146,7 @@ public class UI_Manager : MonoBehaviour
     { 
         isPausedGame = true;
         UI.SetActive(true);
+        UI_Main.SetActive(true);
         anim.Play("FadeUIIn");
     }
 
@@ -162,5 +165,23 @@ public class UI_Manager : MonoBehaviour
         Time.timeScale = 1f;
         isPausedGame = false;
         anim.Play("FadeUIOut");
+    }
+
+    public void FadeInDeath()
+    {
+        UI_Main.SetActive(false);
+        UI.SetActive(true);
+        UI_Death.SetActive(true);
+        anim.Play("FadeInDeath");
+    }
+
+    public void FadeOutDeath()
+    {
+        anim.Play("FadeOutDeath");
+    }
+
+    public void EndGame()
+    {
+        anim.Play("EndAnimation");
     }
 }
