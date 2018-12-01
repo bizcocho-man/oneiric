@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cab115d9f659ee04d8cb2af9394d3307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationPercentage: 0.1
+  animationPercentage: 0
   isJumping: 1
   resetOnExit: 0
 --- !u!114 &114690670422399376
@@ -447,6 +447,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationPercentage: 0
+  isJumping: 0
+  resetOnExit: 0
+--- !u!114 &114872384802918782
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cab115d9f659ee04d8cb2af9394d3307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationPercentage: 0.8
   isJumping: 0
   resetOnExit: 0
 --- !u!206 &206170920296091822
@@ -1895,6 +1909,7 @@ AnimatorState:
   - {fileID: 1101737937495277686}
   m_StateMachineBehaviours:
   - {fileID: 114652270525799390}
+  - {fileID: 114872384802918782}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 1
   m_WriteDefaultValues: 1

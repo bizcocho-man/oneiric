@@ -87,7 +87,7 @@ public class UI_Manager : MonoBehaviour
             return;
         }
 
-        if (Input.GetButtonDown("Pause") && canPause)
+        if (Input.GetButtonDown("Pause") && canPause && !UI_Credits.activeInHierarchy && !UI_Option.activeInHierarchy)
         {
             if (isPausedGame)
             {

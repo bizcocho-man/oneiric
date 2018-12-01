@@ -57,7 +57,7 @@ public class Player_MovementController : MonoBehaviour
 
     private void GetInput()
     {
-        if (Input.GetButtonDown("RestartLevel"))
+        if (Input.GetButtonDown("RestartLevel") && CheckpointManager.Instance.GetCurrentCheckpoint() != null)
         {
             UI_Manager.Instance.FadeInDeath();
         }

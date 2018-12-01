@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene1/Scene1_Baked.unity
     guid: 27554331563211c4aaa63873845e1d4c
-  - enabled: 0
-    path: Assets/Scenes/Scene2/Scene2.unity
-    guid: 5cc281cbf169c234f99c42da9845a7c1
+  - enabled: 1
+    path: Assets/Scenes/Scene2/Scene2_Baked.unity
+    guid: 8bbce3ee9859e2f45a493e7afb14cb83
   m_configObjects: {}

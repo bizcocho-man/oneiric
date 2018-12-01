@@ -4977,7 +4977,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.04737051, y: -0.2756168, z: 0.013600065, w: 0.9600034}
+  m_LocalRotation: {x: 0.04737049, y: -0.27561682, z: 0.013600062, w: 0.9600034}
   m_LocalPosition: {x: -77.36152, y: 10.155298, z: -54.43001}
   m_LocalScale: {x: 3.7223, y: 1, z: 1}
   m_Children: []
@@ -7620,15 +7620,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4246286118709046, guid: 045fccce9c44eca4da0240b3f5d6bf5b, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.04737051
+      value: 0.04737049
       objectReference: {fileID: 0}
     - target: {fileID: 4246286118709046, guid: 045fccce9c44eca4da0240b3f5d6bf5b, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.2756168
+      value: -0.27561682
       objectReference: {fileID: 0}
     - target: {fileID: 4246286118709046, guid: 045fccce9c44eca4da0240b3f5d6bf5b, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.013600065
+      value: 0.013600062
       objectReference: {fileID: 0}
     - target: {fileID: 4246286118709046, guid: 045fccce9c44eca4da0240b3f5d6bf5b, type: 2}
       propertyPath: m_LocalRotation.w
@@ -16691,11 +16691,16 @@ MonoBehaviour:
   UI_Credits: {fileID: 1749333193}
   UI_Death: {fileID: 855397819}
   UI_End: {fileID: 696054095}
+  UI_Tutorial: {fileID: 0}
   currentButton: {fileID: 1468899810}
   Camera: {fileID: 534669902}
+  isDeactivateInput: 0
   canReceiveInput: 1
   canPause: 0
   isPausedGame: 1
+  KeyboardButton: {fileID: 0}
+  ControllerButton: {fileID: 0}
+  Action: {fileID: 0}
 --- !u!114 &1934300782
 MonoBehaviour:
   m_ObjectHideFlags: 0
