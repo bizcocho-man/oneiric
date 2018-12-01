@@ -64,5 +64,7 @@ public class BehaviourObject_MovablePlatform : BehaviourObject
         fraction = 0f;
         isActivated = false;
         transform.position = startPosition;
+        start = startPosition;
+        dest = new Vector3(transform.position.x + dstX, transform.position.y + dstY, transform.position.z + dstZ);
     }
 }

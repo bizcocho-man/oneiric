@@ -63,7 +63,7 @@ public class Player_MovementController : MonoBehaviour
         }
 
         horizontalAxis = Input.GetAxis("Horizontal");
-        horizontalAxisClamped = horizontalAxis > 0 ? 1 : horizontalAxis < 0 ? -1 : 0;
+        horizontalAxisClamped = horizontalAxis > 0.5 ? 1 : horizontalAxis < -0.5 ? -1 : 0;
         inputJump = Input.GetButton("Jump");
 
         canMove = !isMovementBlocked && !isAgainstObstacle;
